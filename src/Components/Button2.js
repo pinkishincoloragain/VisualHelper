@@ -5,6 +5,8 @@ export default function Button2(props) {
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Button
+        onClick={props.onClick}
+        href={props.href}
         sx={{
           width: "30vw",
           height: "10vh",

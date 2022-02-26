@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Box } from "@mui/system";
-import Landing from "./assets/Landing.png";
-import { Container } from "@mui/material";
 import LandingPage from "./Views/LandingPage";
+import PreTestPage from "./Views/PreTestPage";
+import TestPage from "./Views/TestPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+
 import Aos from "aos";
 
 function App() {
@@ -14,13 +16,12 @@ function App() {
   }, []);
 
   return (
-    <div
-      sx={{ ml: "10vw", display: "flex", flexDirection: "column" }}
-      className="App"
-    >
+    <div sx={{ display: "flex", flexDirection: "column" }} className="App">
       <BrowserRouter>
         <Routes>
           <Route exact path="/home" element={<LandingPage />} />
+          <Route exact path="/pretest" element={<PreTestPage />} />
+          <Route exact path="/test" element={<TestPage />} />
           <Route index path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
