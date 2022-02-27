@@ -6,18 +6,29 @@ import PreTestPage from "./Views/PreTestPage";
 import TestPage from "./Views/TestPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-
 import Aos from "aos";
+import HeaderBar from "./Components/Headerbar";
 
+// For animation
 function App() {
   useEffect(() => {
     Aos.init();
     Aos.refresh();
   }, []);
 
+  const darkMode = useSelector((state) => state.mode.value);
+
   return (
-    <div sx={{ display: "flex", flexDirection: "column" }} className="App">
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
+      }}
+      className="App"
+    >
       <BrowserRouter>
+        <HeaderBar />
         <Routes>
           <Route exact path="/home" element={<LandingPage />} />
           <Route exact path="/pretest" element={<PreTestPage />} />
@@ -25,7 +36,7 @@ function App() {
           <Route index path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </Box>
   );
 }
 
