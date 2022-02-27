@@ -19,9 +19,10 @@ export default function PreTestPage() {
       <Box sx={{ ml: "5vw", height: "90vh" }}>
         <Box
           sx={{
-            pl: "2vw",
-            pr: "2vw",
-            width: "86vw",
+            pl: "5vw",
+            pr: "5vw",
+            pt: "10vh",
+            width: "80vw",
             height: "90vh",
             backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
           }}
@@ -32,34 +33,26 @@ export default function PreTestPage() {
             fontWeight={"100"}
             letterSpacing="-1px"
           >
-            This test is for the purpose of testing your preferences on web
-            page.
+            This test consists of three parts.
           </Typography>
-
           <Typography
             variant="h4"
             fontWeight={"100"}
             sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2" }}
           >
-            <br /> This test consists of three parts.
+            <br />
+            &nbsp;&nbsp;&nbsp; - Color test
+            <br /> <br />
+            &nbsp;&nbsp;&nbsp; - Vision test
+            <br /> <br />
+            &nbsp;&nbsp;&nbsp; - Web proficiency test
             <br />
             <br />
-            &nbsp;&nbsp;&nbsp; 1. Color test
+            To proceed, press button below.
             <br />
-            &nbsp;&nbsp;&nbsp; 2. Vision test
             <br />
-            &nbsp;&nbsp;&nbsp; 3. Web proficiency test
           </Typography>
-          <br />
 
-          <br />
-          <Typography
-            variant="h3"
-            fontWeight={"100"}
-            sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2" }}
-          >
-            To proceed, press this button.
-          </Typography>
           <Button2 onClick={handleTest} href="test" name="test"></Button2>
         </Box>
       </Box>
