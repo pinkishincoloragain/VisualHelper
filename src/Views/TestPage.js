@@ -28,7 +28,9 @@ export default function TestPage() {
   return (
     <Box
       sx={{
-        ml: "10vw",
+        ml: "5vw",
+        pl: "5vw",
+        width: "85vw",
         display: "flex",
         flexDirection: "column",
         backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
@@ -44,10 +46,14 @@ export default function TestPage() {
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
+          backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
         {/* Will be changed to shrinking bar */}
-        <Typography color="black" fontSize={"h3.fontSize"}>
+        <Typography
+          color={darkMode ? "#1f1f1f" : "#f2f2f2"}
+          fontSize={"h3.fontSize"}
+        >
           {time}
         </Typography>
       </Paper>
@@ -57,9 +63,11 @@ export default function TestPage() {
         elevation={10}
         sx={{
           mt: "10vh",
+          mb: "10vh",
           width: "80vw",
-          height: "70vh",
+          height: "60vh",
           borderRadius: "20px",
+          backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
         <Test />

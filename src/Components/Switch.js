@@ -1,6 +1,6 @@
 import * as React from "react";
 import { alpha, styled } from "@mui/material/styles";
-import { pink } from "@mui/material/colors";
+import { green, pink } from "@mui/material/colors";
 import Switch from "@mui/material/Switch";
 import { useSelector, useDispatch } from "react-redux";
 import { changeMode } from "../reducers/modeSlice";
@@ -27,5 +27,5 @@ export default function ColorSwitches() {
 
   const darkMode = useSelector((state) => state.mode.value);
 
-  return <GreenSwitch onClick={handleChange} {...label} defaultChecked />;
+  return <GreenSwitch checked={darkMode} onClick={handleChange} {...label} />;
 }

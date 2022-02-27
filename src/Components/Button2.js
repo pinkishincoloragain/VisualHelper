@@ -4,7 +4,7 @@ import { Box } from "@mui/system";
 import { Button, Typography } from "@mui/material";
 
 export default function Button2(props) {
-  const darkMode = useSelector((state) => state.mode.value);
+  const darkMode = useSelector((state) => state.mode.value) ^ props.anti;
 
   return (
     <Box

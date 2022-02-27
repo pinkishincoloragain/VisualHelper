@@ -1,4 +1,4 @@
-import { Typography } from "@mui/material";
+import { Link, Typography } from "@mui/material";
 import Box from "@mui/system/Box";
 import { useSelector, useDispatch } from "react-redux";
 import ColorSwitches from "./Switch";
@@ -21,7 +21,15 @@ export default function HeaderBar() {
         justifyContent: "space-between",
       }}
     >
-      <Typography variant="h2">VisualHelper</Typography>
+      <Typography
+        variant="h2"
+        sx={{
+          ml: "2vw",
+          color: darkMode ? "#f2f2f2" : "#1f1f1f",
+        }}
+      >
+        <Link href="/">VisualHelper</Link>
+      </Typography>
       <Box
         sx={{
           ml: "10vw",
