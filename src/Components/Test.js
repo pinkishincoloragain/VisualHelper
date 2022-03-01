@@ -3,41 +3,27 @@ import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
 import Option from "./Test/Option";
 import Button2 from "./Button2";
-import { Q1 } from "./Test/Content";
+import { VisionTest } from "./Test/Content";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Test() {
+  const [step, setStep] = useState(0);
+  const darkMode = useSelector((state) => state.mode.value);
+
   return (
     <Box
       sx={{
-        width: "100%",
-        height: "100%",
+        width: "70vw",
+        height: "90%",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: "column",
         p: "2vh",
-        // backgroundColor: "#1f1f1f",
+        backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
+        borderRadius: "20px",
       }}
     >
-      <Box
-        sx={{
-          flex: "2",
-        }}
-      >
-        <Q1 />
-      </Box>
-      <Box
-        sx={{
-          flex: "1",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          pt: "5vh",
-          pb: "10vh",
-        }}
-      >
-        <Button2 anti={true} name="option!" />
-        <Button2 anti={true} name="option!" />
-        <Button2 anti={true} name="option!" />
-      </Box>
+      <VisionTest />
     </Box>
   );
 }

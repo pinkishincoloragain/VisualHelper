@@ -2,9 +2,15 @@ import { useSelector } from "react-redux";
 
 import { Box } from "@mui/system";
 import { Button, Typography } from "@mui/material";
+import { useEffect } from "react";
 
 export default function Button2(props) {
-  const darkMode = useSelector((state) => state.mode.value) ^ props.anti;
+  const darkMode = useSelector((state) => state.mode.value);
+  let mode = darkMode;
+  useEffect(() => {
+    mode = !darkMode;
+    console.log(mode);
+  }, [darkMode]);
 
   return (
     <Box
@@ -21,7 +27,7 @@ export default function Button2(props) {
         }}
       >
         <Typography
-          color={darkMode ? "#f2f2f2" : "#1f1f1f"}
+          color={mode ? "#f2f2f2" : "#1f1f1f"}
           fontSize={"h3.fontSize"}
         >
           {props.name}
@@ -33,7 +39,7 @@ export default function Button2(props) {
         sx={{
           width: "30vw",
           height: "0.5vh",
-          backgroundColor: darkMode ? "#f2f2f2" : "#1f1f1f",
+          backgroundColor: mode ? "#f2f2f2" : "#1f1f1f",
         }}
       ></Box>
     </Box>
