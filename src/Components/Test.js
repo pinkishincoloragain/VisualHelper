@@ -11,16 +11,22 @@ export default function Test() {
   const [step, setStep] = useState(0);
   const darkMode = useSelector((state) => state.mode.value);
 
+  const handleStep = (answer) => {
+    
+    setStep(step + 1);
+  };
+
   return (
     <Box
       sx={{
-        width: "70vw",
-        height: "90%",
+        py: "2vh",
+        px: "1vw",
+        width: "78vw",
+        height: "57vh",
+        borderRadius: "20px",
+        backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         display: "flex",
         flexDirection: "column",
-        p: "2vh",
-        backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
-        borderRadius: "20px",
       }}
     >
       <VisionTest />

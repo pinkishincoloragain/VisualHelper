@@ -12,7 +12,7 @@ const VisionTest = (qNum, handleStep) => {
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",
-          mb: "5vh",
+          mb: "2vh",
         }}
         variant="h3"
       >
@@ -32,14 +32,14 @@ const VisionTest = (qNum, handleStep) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            pt: "5vh",
+            pt: "3vh",
             pb: "10vh",
           }}
         >
           <Box
             sx={{
               height: "100%",
-              ml: "10vh",
+              ml: "15vh",
               display: "flex",
               flexDirection: "column",
               justifyContent: "space-between",
