@@ -70,7 +70,7 @@ export default function TestPage() {
           backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
-        <Test />
+        <Test setTime={setTime} />
       </Paper>
     </Box>
   );

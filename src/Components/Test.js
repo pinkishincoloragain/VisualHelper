@@ -1,20 +1,23 @@
-import { Typography } from "@mui/material";
-import { Box } from "@mui/system";
-import { Paper } from "@mui/material";
-import Option from "./Test/Option";
-import Button2 from "./Button2";
-import { VisionTest } from "./Test/Content";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { Typography, Paper } from "@mui/material";
+import { Box } from "@mui/system";
+import { ColorTest } from "./Test/Content";
 
-export default function Test() {
+export default function Test(props) {
   const [step, setStep] = useState(0);
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleStep = (answer) => {
-    
     setStep(step + 1);
+    props.setTime(10);
   };
+
+  useEffect(() => {
+    return () => {
+      alert("leave?"); 
+    };
+  }, []);
 
   return (
     <Box
@@ -29,7 +32,13 @@ export default function Test() {
         flexDirection: "column",
       }}
     >
-      <VisionTest />
+      {step < 3 ? <ColorTest qNum={step} handleStep={handleStep} /> : null}
+      {3 <= step && step < 6 ? (
+        <ColorTest qNum={step} handleStep={handleStep} />
+      ) : null}
+      {6 <= step && step < 9 ? (
+        <ColorTest qNum={step} handleStep={handleStep} />
+      ) : null}
     </Box>
   );
 }
