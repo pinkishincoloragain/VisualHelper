@@ -5,19 +5,7 @@ import { Box } from "@mui/system";
 import { ColorTest } from "./Test/Content";
 
 export default function Test(props) {
-  const [step, setStep] = useState(0);
   const darkMode = useSelector((state) => state.mode.value);
-
-  const handleStep = (answer) => {
-    setStep(step + 1);
-    props.setTime(10);
-  };
-
-  useEffect(() => {
-    return () => {
-      alert("leave?"); 
-    };
-  }, []);
 
   return (
     <Box
@@ -32,12 +20,14 @@ export default function Test(props) {
         flexDirection: "column",
       }}
     >
-      {step < 3 ? <ColorTest qNum={step} handleStep={handleStep} /> : null}
-      {3 <= step && step < 6 ? (
-        <ColorTest qNum={step} handleStep={handleStep} />
+      {props.step < 3 ? (
+        <ColorTest qNum={props.step} handleStep={props.handleStep} />
       ) : null}
-      {6 <= step && step < 9 ? (
-        <ColorTest qNum={step} handleStep={handleStep} />
+      {3 <= props.step && props.step < 6 ? (
+        <ColorTest qNum={props.step} handleStep={props.handleStep} />
+      ) : null}
+      {6 <= props.step && props.step < 9 ? (
+        <ColorTest qNum={props.step} handleStep={props.handleStep} />
       ) : null}
     </Box>
   );

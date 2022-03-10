@@ -27,6 +27,7 @@ export default function Button2(props) {
         }}
       >
         <Typography
+          variant="h3"
           color={mode ? "#f2f2f2" : "#1f1f1f"}
           fontSize={"h3.fontSize"}
         >

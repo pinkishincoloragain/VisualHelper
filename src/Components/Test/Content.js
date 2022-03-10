@@ -6,29 +6,44 @@ import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
 import { useSelector } from "react-redux";
 
+const q1 = {
+  name: "q1",
+  options: [
+    { name: "15" },
+    { name: "13" },
+    { name: "12" },
+    { name: "I don't know" },
+  ],
+  image: Plate6,
+};
+const q2 = {
+  name: "q2",
+  options: [
+    { name: "74" },
+    { name: "71" },
+    { name: "q2o3" },
+    { name: "I don't know" },
+  ],
+  image: Plate7,
+};
+const q3 = {
+  name: "q3",
+  options: [
+    { name: "6" },
+    { name: "5" },
+    { name: "3" },
+    { name: "I don't know" },
+  ],
+  image: Plate8,
+};
+
+const q4 = {
+  name: "q4",
+  // options: [
+};
+
 const ColorTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
-
-  const q1 = {
-    name: "q1",
-    options: [
-      { name: "15" },
-      { name: "13" },
-      { name: "12" },
-      { name: "I don't know" },
-    ],
-    image: Plate6,
-  };
-  const q2 = {
-    name: "q2",
-    options: [{ name: "74" }, { name: "71" }, { name: "q2o3" }],
-    image: Plate7,
-  };
-  const q3 = {
-    name: "q3",
-    options: [{ name: "q3o1" }, { name: "q3o2" }, { name: "q3o3" }],
-    image: Plate8,
-  };
 
   const questions = [q1, q2, q3];
 
@@ -52,7 +67,7 @@ const ColorTest = (props) => {
         }}
       >
         <img
-          style={{ margin: "5vh", width: "40vh" }}
+          style={{ margin: "6vh", marginRight: "min(8vh,30px)", width: "40vh" }}
           src={questions[props.qNum].image}
         ></img>
         <Box
@@ -61,7 +76,7 @@ const ColorTest = (props) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
-            pt: "3vh",
+            pt: "6vh",
             pb: "10vh",
           }}
         >
