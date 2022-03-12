@@ -22,16 +22,17 @@ export default function AboutPage() {
       >
         <Box color={!darkMode ? "#1f1f1f" : "#f2f2f2"}>
           <Typography variant="h1">Visualhelper</Typography>
+          <div data-aos="fade-up">fish</div>
           <br />
           <List>
             <ListItem>
-              <Typography variant="h3">1.What is the Visualhelper</Typography>
+              <Typography variant="h4">1.What is the Visualhelper</Typography>
             </ListItem>
             <ListItem>
-              <Typography variant="h3">1.What is the Visualhelper</Typography>
+              <Typography variant="h4">1.What is the Visualhelper</Typography>
             </ListItem>
             <ListItem>
-              <Typography variant="h3">1.What is the Visualhelper</Typography>
+              <Typography variant="h4">1.What is the Visualhelper</Typography>
             </ListItem>
           </List>
           <br />

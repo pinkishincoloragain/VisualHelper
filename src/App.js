@@ -8,6 +8,8 @@ import AboutPage from "./Views/AboutPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
+import "aos/dist/aos.css";
+
 import HeaderBar from "./Components/Headerbar";
 
 // For animation
