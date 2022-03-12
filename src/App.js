@@ -4,6 +4,7 @@ import { Box } from "@mui/system";
 import LandingPage from "./Views/LandingPage";
 import PreTestPage from "./Views/PreTestPage";
 import TestPage from "./Views/TestPage";
+import AboutPage from "./Views/AboutPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
@@ -30,9 +31,9 @@ function App() {
       <BrowserRouter>
         <HeaderBar />
         <Routes>
-          <Route exact path="/home" element={<LandingPage />} />
           <Route exact path="/pretest" element={<PreTestPage />} />
           <Route exact path="/test" element={<TestPage />} />
+          <Route index path="/about" element={<AboutPage />} />
           <Route index path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>

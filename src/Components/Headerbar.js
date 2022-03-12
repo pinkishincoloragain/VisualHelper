@@ -26,7 +26,8 @@ export default function HeaderBar() {
         <Typography
           variant="h2"
           sx={{
-            ml: "2vw",
+            // pl: "4vw",
+            pt: "2vh",
             color: darkMode ? "#f2f2f2" : "#1f1f1f",
           }}
         >

@@ -13,9 +13,9 @@ export default function Test(props) {
         py: "2vh",
         px: "1vw",
         width: "78vw",
-        height: "57vh",
-        borderRadius: "20px",
-        backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
+        height: "100%",
+        // borderRadius: "20px",
+        backgroundColor: darkMode ? "#1f1f1f" : "#FFFFFF",
         display: "flex",
         flexDirection: "column",
       }}
