@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
-import { ColorTest } from "./Test/Content";
+import { ColorTest, ReadingTest } from "./Test/Content";
 
 export default function Test(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -24,7 +24,7 @@ export default function Test(props) {
         <ColorTest qNum={props.step} handleStep={props.handleStep} />
       ) : null}
       {3 <= props.step && props.step < 6 ? (
-        <ColorTest qNum={props.step} handleStep={props.handleStep} />
+        <ReadingTest qNum={props.step} handleStep={props.handleStep} />
       ) : null}
       {6 <= props.step && props.step < 9 ? (
         <ColorTest qNum={props.step} handleStep={props.handleStep} />

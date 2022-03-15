@@ -10,8 +10,6 @@ import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
-import HeaderBar from "./Components/Headerbar";
-
 // For animation
 function App() {
   useEffect(() => {
@@ -31,7 +29,6 @@ function App() {
       className="App"
     >
       <BrowserRouter>
-        <HeaderBar />
         <Routes>
           <Route exact path="/pretest" element={<PreTestPage />} />
           <Route exact path="/test" element={<TestPage />} />

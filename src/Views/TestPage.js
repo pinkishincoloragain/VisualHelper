@@ -7,18 +7,18 @@ import { useSelector, useDispatch } from "react-redux";
 
 export default function TestPage(props) {
   const darkMode = useSelector((state) => state.mode.value);
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState(0);
   const [step, setStep] = useState(0);
   const handleStep = (answer) => {
     setStep(step + 1);
-    setTime(10);
+    setTime(0);
   };
 
   const handleTime = () => {
-    setTime(time - 1);
-    if (time <= 0) {
+    setTime(time + 1);
+    if (time >= 300) {
       setStep(step + 1);
-      setTime(10);
+      setTime(0);
     }
     console.log(time);
   };
@@ -27,7 +27,7 @@ export default function TestPage(props) {
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
-    }, 1000);
+    }, 100);
     return () => clearInterval(interval);
   }, [time, step]);
 
@@ -51,17 +51,24 @@ export default function TestPage(props) {
           // borderRadius: "20px",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "center",
           backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
-        {/* Will be changed to shrinking bar */}
-        <Typography
-          color={darkMode ? "#1f1f1f" : "#f2f2f2"}
-          fontSize={"h3.fontSize"}
+        <Box
+          sx={{
+            width: (time * 0.8) / 3 + "vw",
+            height: "8vh",
+            backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
+          }}
         >
-          {time}
-        </Typography>
+          <Typography
+            pl={8}
+            color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
+            fontSize={"h3.fontSize"}
+          >
+            {Math.floor(time / 10)}
+          </Typography>
+        </Box>
       </Paper>
 
       <Paper

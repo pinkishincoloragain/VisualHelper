@@ -9,7 +9,6 @@ export default function Button2(props) {
   let mode = darkMode;
   useEffect(() => {
     mode = !darkMode;
-    console.log(mode);
   }, [darkMode]);
 
   return (
