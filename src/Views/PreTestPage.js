@@ -41,13 +41,15 @@ export default function PreTestPage() {
             sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2" }}
           >
             <br />
-            &nbsp;&nbsp;&nbsp; - Color test
+            <br />
+            Color test : You will test color impairment.
             <br /> <br />
-            &nbsp;&nbsp;&nbsp; - Vision test
+            Vision test
             <br /> <br />
-            &nbsp;&nbsp;&nbsp; - Web proficiency test
+            Web proficiency test
             <br />
             <br />
+            This test will take approximately 5 minutes.
             To proceed, press button below.
             <br />
             <br />

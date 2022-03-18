@@ -69,6 +69,75 @@ const q6 = {
 
 const questions = [q1, q2, q3, q4, q5, q6];
 
+const ColorTest = (props) => {
+  const darkMode = useSelector((state) => state.mode.value);
+
+  const questions = [q1, q2, q3];
+
+  const handleAnsClick = (name) => {
+    props.handleStep(name);
+  };
+
+  return (
+    <>
+      <Typography
+        sx={{
+          color: !darkMode ? "#1f1f1f" : "#f2f2f2",
+          ml: "5vh",
+          mb: "2vh",
+        }}
+        variant="h3"
+      >
+        {props.qNum + 1}. What is this number?
+      </Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-betweens",
+        }}
+      >
+        <img
+          style={{ margin: "6vh", marginRight: "min(8vh,30px)", width: "50vh" }}
+          src={questions[props.qNum].image}
+        ></img>
+        <Box
+          sx={{
+            flex: "1",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+            pt: "10vh",
+            pb: "10vh",
+          }}
+        >
+          {questions[props.qNum].options.map((option) => {
+            return (
+              <Box
+                sx={{
+                  height: "100%",
+                  ml: "20vh",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                }}
+                key={option.name + "box"}
+              >
+                <Button2
+                  anti={true}
+                  name={option.name}
+                  onClick={() => handleAnsClick(option.name)}
+                  key={option.name + "button"}
+                />
+              </Box>
+            );
+          })}
+        </Box>
+      </Box>
+    </>
+  );
+};
+
 const ReadingTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
 
@@ -124,71 +193,6 @@ const ReadingTest = (props) => {
                   key={option.name + "button"}
                 />
               </div>
-            );
-          })}
-        </Box>
-      </Box>
-    </>
-  );
-};
-
-const ColorTest = (props) => {
-  const darkMode = useSelector((state) => state.mode.value);
-
-  const questions = [q1, q2, q3];
-
-  return (
-    <>
-      <Typography
-        sx={{
-          color: !darkMode ? "#1f1f1f" : "#f2f2f2",
-          ml: "5vh",
-          mb: "2vh",
-        }}
-        variant="h3"
-      >
-        {props.qNum + 1}. What is this number?
-      </Typography>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-betweens",
-        }}
-      >
-        <img
-          style={{ margin: "6vh", marginRight: "min(8vh,30px)", width: "40vh" }}
-          src={questions[props.qNum].image}
-        ></img>
-        <Box
-          sx={{
-            flex: "1",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-            pt: "6vh",
-            pb: "10vh",
-          }}
-        >
-          {questions[props.qNum].options.map((option) => {
-            return (
-              <Box
-                sx={{
-                  height: "100%",
-                  ml: "15vh",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-                key={option.name + "box"}
-              >
-                <Button2
-                  anti={true}
-                  name={option.name}
-                  onClick={() => props.handleStep(option.name)}
-                  key={option.name + "button"}
-                />
-              </Box>
             );
           })}
         </Box>
