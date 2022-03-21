@@ -15,7 +15,7 @@ export default function Test() {
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
-    }, 100);
+    }, 10);
     return () => clearInterval(interval);
   }, [time, step]);
 
@@ -26,7 +26,7 @@ export default function Test() {
   };
 
   const handleTime = () => {
-    setTime(time + 1);
+    setTime(time + 0.1);
     if (time >= 300) {
       setStep(step + 1);
       setTime(0);
@@ -41,7 +41,7 @@ export default function Test() {
         sx={{
           mt: "2vh",
           width: "80vw",
-          height: "8vh",
+          height: "6vh",
           // borderRadius: "20px",
           display: "flex",
           flexDirection: "row",
@@ -51,23 +51,25 @@ export default function Test() {
         <Box
           sx={{
             width: (time * 0.8) / 3 + "vw",
-            height: "8vh",
+            height: "6vh",
+            alignItems: "center",
+            // justifyContent: "center",
             backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
           }}
         >
           <Typography
             pl={8}
             color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
-            fontSize={"h3.fontSize"}
+            fontSize={"h4.fontSize"}
           >
-            {Math.floor(time / 10)}
+            {/* {Math.floor(time / 10)} */}
           </Typography>
         </Box>
       </Paper>
 
       <Box
         sx={{
-          py: "2vh",
+          pt: "5vh",
           px: "1vw",
           width: "78vw",
           // height: "100%",

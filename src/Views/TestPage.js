@@ -19,10 +19,10 @@ export default function TestPage(props) {
     >
       <Paper
         data-aos="fade-up"
-        elevation={10}
+        elevation={4}
         sx={{
           pt: "2vh",
-          pl: "10vw",
+          ml: "10vw",
           width: "80vw",
           height: "100vh",
           // borderRadius: "20px",
