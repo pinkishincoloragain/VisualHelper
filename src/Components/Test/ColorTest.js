@@ -21,7 +21,7 @@ const q2 = {
   options: [
     { name: "74" },
     { name: "71" },
-    { name: "q2o3" },
+    { name: "72" },
     { name: "I don't know" },
   ],
   image: Plate7,
@@ -36,43 +36,11 @@ const q3 = {
   ],
   image: Plate8,
 };
-const q4 = {
-  name: "q4",
-  options: [
-    { name: "15" },
-    { name: "13" },
-    { name: "12" },
-    { name: "I don't know" },
-  ],
-  image: Plate6,
-};
-const q5 = {
-  name: "q5",
-  options: [
-    { name: "74" },
-    { name: "71" },
-    { name: "q2o3" },
-    { name: "I don't know" },
-  ],
-  image: Plate7,
-};
-const q6 = {
-  name: "q6",
-  options: [
-    { name: "6" },
-    { name: "5" },
-    { name: "3" },
-    { name: "I don't know" },
-  ],
-  image: Plate8,
-};
 
-const questions = [q1, q2, q3, q4, q5, q6];
+const questions = [q1, q2, q3];
 
 const ColorTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
-
-  const questions = [q1, q2, q3];
 
   const handleAnsClick = (name) => {
     props.handleStep(name);
@@ -88,7 +56,7 @@ const ColorTest = (props) => {
         }}
         variant="h3"
       >
-        {props.qNum + 1}. What is this number?
+        What is this number?
       </Typography>
       <Box
         sx={{

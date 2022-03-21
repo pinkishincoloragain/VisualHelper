@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Box } from "@mui/system";
 import LandingPage from "./Views/LandingPage";
-import PreTestPage from "./Views/PreTestPage";
+import NoticePage from "./Views/NoticePage";
 import TestPage from "./Views/TestPage";
 import AboutPage from "./Views/AboutPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -30,7 +30,7 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route exact path="/pretest" element={<PreTestPage />} />
+          <Route exact path="/notice" element={<NoticePage />} />
           <Route exact path="/test" element={<TestPage />} />
           <Route index path="/about" element={<AboutPage />} />
           <Route index path="/" element={<LandingPage />} />

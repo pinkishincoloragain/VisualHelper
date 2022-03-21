@@ -2,7 +2,7 @@ import { Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { Typography } from "@mui/material";
 import { useState, useEffect, useRef } from "react";
-import Test from "../Components/Test";
+import Test from "../Components/Test/Test";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function TestPage(props) {
@@ -21,11 +21,10 @@ export default function TestPage(props) {
         data-aos="fade-up"
         elevation={10}
         sx={{
-          // pt: "2vh",
-          mt: "2vh",
-          mb: "18vh",
+          pt: "2vh",
+          pl: "10vw",
           width: "80vw",
-          height: "70vh",
+          height: "100vh",
           // borderRadius: "20px",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}

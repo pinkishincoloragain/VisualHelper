@@ -5,7 +5,7 @@ import Button2 from "../Components/Button2";
 import { useSelector } from "react-redux";
 import styled from "@emotion/styled";
 
-export default function PreTestPage() {
+export default function NoticePage() {
   const [test, setTest] = useState(false);
   const darkMode = useSelector((state) => state.mode.value);
 
@@ -16,7 +16,7 @@ export default function PreTestPage() {
 
   return (
     <Box>
-      <Box sx={{ ml: "5vw", height: "90vh" }}>
+      <Box sx={{ ml: "5vw", height: "100vh" }}>
         <Box
           sx={{
             pl: "5vw",
@@ -42,15 +42,16 @@ export default function PreTestPage() {
           >
             <br />
             <br />
-            Color test : You will test color impairment.
+            Color test
             <br /> <br />
             Vision test
             <br /> <br />
             Web proficiency test
             <br />
             <br />
-            This test will take approximately 5 minutes.
-            To proceed, press button below.
+            <br />
+            This test will take approximately 3 minutes. To proceed, press
+            button below.
             <br />
             <br />
           </Typography>

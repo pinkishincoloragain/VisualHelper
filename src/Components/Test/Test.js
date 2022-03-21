@@ -2,12 +2,16 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
-import { ColorTest, ReadingTest } from "./Test/Content";
+import { ReadingTest } from "./ReadingTest";
+import { ColorTest } from "./ColorTest";
+import NoticePage from "../../Views/NoticePage";
+import PreTest from "./PreTest";
 
 export default function Test() {
   const darkMode = useSelector((state) => state.mode.value);
   const [time, setTime] = useState(0);
   const [step, setStep] = useState(0);
+  const [test, setTest] = useState([]);
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
@@ -18,6 +22,7 @@ export default function Test() {
   const handleStep = (answer) => {
     setStep(step + 1);
     setTime(0);
+    console.log(test);
   };
 
   const handleTime = () => {
@@ -26,7 +31,7 @@ export default function Test() {
       setStep(step + 1);
       setTime(0);
     }
-    console.log(time);
+    // console.log(time);
   };
 
   return (
@@ -65,19 +70,21 @@ export default function Test() {
           py: "2vh",
           px: "1vw",
           width: "78vw",
-          height: "100%",
+          // height: "100%",
           // borderRadius: "20px",
-          backgroundColor: darkMode ? "#1f1f1f" : "#FFFFFF",
+          backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
           display: "flex",
           flexDirection: "column",
         }}
       >
         {step < 3 ? <ColorTest qNum={step} handleStep={handleStep} /> : null}
-        {3 <= step && step < 6 ? (
-          <ReadingTest qNum={step} handleStep={handleStep} />
+        {step === 3 ? <PreTest handleStep={handleStep} /> : null}
+        {4 <= step && step < 7 ? (
+          <ReadingTest qNum={step - 4} handleStep={handleStep} />
         ) : null}
-        {6 <= step && step < 9 ? (
-          <ColorTest qNum={step} handleStep={handleStep} />
+        {step === 7 ? <NoticePage /> : null}
+        {8 <= step && step < 11 ? (
+          <ColorTest qNum={step - 8} handleStep={handleStep} />
         ) : null}
       </Box>
     </>

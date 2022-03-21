@@ -43,7 +43,6 @@ export default function LandingPage() {
               height: "min(50vw,50vh)",
               // marginLeft: "",
             }}
-            data-aos="fade-up"
             src={Flower}
             width="40% "
           />
@@ -57,7 +56,7 @@ export default function LandingPage() {
               pb: "10vh",
             }}
           >
-            <Button2 name="test" href="pretest"></Button2>
+            <Button2 name="test" href="notice"></Button2>
             <Button2 name="About" href="about"></Button2>
             <Button2 name="Contact"></Button2>
             <Button2 name="Light" onClick={handleChange}></Button2>
