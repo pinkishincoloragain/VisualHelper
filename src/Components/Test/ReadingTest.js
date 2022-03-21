@@ -8,39 +8,38 @@ import { useSelector } from "react-redux";
 
 const q4 = {
   name: "q4",
-  options: [
-    { name: "15" },
-    { name: "13" },
-    { name: "12" },
-    { name: "I don't know" },
-  ],
-  image: Plate6,
+  text1: `The head, or the spherical body part that contains the brain and rests at the top of the human body,
+  has quite a few individual organs and body parts on it. (It should quickly be mentioned that hair
+  occupies the space on top of the head, and the ears, the organs responsible for hearing, are located
+  on either side of the head.) From top to bottom, the eyebrows, or horizontal strips of hair that can be
+  found above the eye, are the first components of the head.`,
+
+  text2: `The eyes make way for the nose, or an external (sticking-out) organ that plays an important part in the
+  breathing and bacteria-elimination processes. Below that is the mouth, or a wide, cavernous organ
+  that chews food, removes bacteria, helps with breathing, and more. The mouth contains teeth, or
+  small, white-colored, pointed body parts used to chew food, and the tongue, or a red-colored,
+  boneless organ used to chew food and speak.`,
 };
 const q5 = {
   name: "q5",
-  options: [
-    { name: "74" },
-    { name: "71" },
-    { name: "72" },
-    { name: "I don't know" },
-  ],
-  image: Plate7,
 };
 const q6 = {
   name: "q6",
-  options: [
-    { name: "6" },
-    { name: "5" },
-    { name: "3" },
-    { name: "I don't know" },
-  ],
-  image: Plate8,
+  text: `The legs are the long, muscular body parts that allow humans to move from one spot to another and
+  perform a variety of actions. Each leg contains a thigh (a thick, especially muscular body part used to
+  perform strenuous motions; the upper part of the leg) and a calf (thinner, more flexible body part that
+  absorbs the shock associated with movement; the lower part of the leg). Feet can be found at the
+  bottom of legs, and each foot is comprised of five toes, or small appendages that help balance.`,
 };
 
 const questions = [q4, q5, q6];
 
 const ReadingTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
+
+  const handleClick = () => {
+    props.handleStep();
+  };
 
   return (
     <>
@@ -52,52 +51,64 @@ const ReadingTest = (props) => {
         }}
         variant="h3"
       >
-        What is this number?
+        Read the following text and click the button.
       </Typography>
       <Box
         sx={{
+          px: "5vh",
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-betweens",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#a4a4a4",
         }}
       >
-        <img
-          style={{ margin: "6vh", marginRight: "min(8vh,30px)", width: "40vh" }}
-          src={questions[props.qNum].image}
-        ></img>
         <Box
           sx={{
-            flex: "1",
+            backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
             justifyContent: "space-between",
-            pt: "6vh",
-            pb: "10vh",
+            alignItems: "center",
           }}
         >
-          {questions[props.qNum].options.map((option) => {
-            return (
-              <div
-                sx={{
-                  height: "100%",
-                  ml: "15vh",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-                key={option.name}
-              >
-                <Button2
-                  anti={true}
-                  name={option.name}
-                  onClick={() => props.handleStep(option.name)}
-                  key={option.name + "button"}
-                />
-              </div>
-            );
-          })}
+          <Box
+            sx={{
+              p: "1rem",
+              width: "50%",
+              height: "50%",
+              backgroundColor: "#f2f2f2",
+            }}
+          >
+            <Typography sx={{ px: "4vw" }} variant="h6" color="#1f1f1f">
+              {questions[props.qNum].text1}
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              p: "1rem",
+              width: "50%",
+              height: "50%",
+              backgroundColor: "#1f1f1f",
+            }}
+          >
+            <Typography
+              sx={{ px: "4vw", color: "#f2f2f2" }}
+              variant="h6"
+              color="#1f1f1f"
+            >
+              {questions[props.qNum].text2}
+            </Typography>
+          </Box>
         </Box>
       </Box>
+      <Button2
+        sx={{
+          ml: "5vh",
+        }}
+        name="Finish"
+        onClick={handleClick}
+      ></Button2>
     </>
   );
 };

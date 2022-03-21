@@ -23,6 +23,7 @@ export default function Button2(props) {
           height: "8vh",
           alignItems: "flex-start",
           justifyContent: "flex-start",
+          ...props.sx,
         }}
       >
         <Typography

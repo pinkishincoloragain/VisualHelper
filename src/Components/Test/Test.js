@@ -6,12 +6,14 @@ import { ReadingTest } from "./ReadingTest";
 import { ColorTest } from "./ColorTest";
 import NoticePage from "../../Views/NoticePage";
 import PreTest from "./PreTest";
+import ResultPage from "../../Views/ResultPage";
 
 export default function Test() {
   const darkMode = useSelector((state) => state.mode.value);
   const [time, setTime] = useState(0);
   const [step, setStep] = useState(0);
   const [test, setTest] = useState([]);
+
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
@@ -20,14 +22,14 @@ export default function Test() {
   }, [time, step]);
 
   const handleStep = (answer) => {
+    setTest([...test, [answer, time]]);
     setStep(step + 1);
     setTime(0);
-    console.log(test);
   };
 
   const handleTime = () => {
     setTime(time + 0.1);
-    if (time >= 300) {
+    if (time >= 30000) {
       setStep(step + 1);
       setTime(0);
     }
@@ -79,7 +81,9 @@ export default function Test() {
           flexDirection: "column",
         }}
       >
-        {step < 3 ? <ColorTest qNum={step} handleStep={handleStep} /> : null}
+        {/* {step < 3 ? <ColorTest qNum={step} handleStep={handleStep} /> : null} */}
+        {step < 3 ? <ReadingTest qNum={step} handleStep={handleStep} /> : null}
+        {/* {step < 3 ? <PreTest handleStep={handleStep} /> : null} */}
         {step === 3 ? <PreTest handleStep={handleStep} /> : null}
         {4 <= step && step < 7 ? (
           <ReadingTest qNum={step - 4} handleStep={handleStep} />
@@ -88,6 +92,7 @@ export default function Test() {
         {8 <= step && step < 11 ? (
           <ColorTest qNum={step - 8} handleStep={handleStep} />
         ) : null}
+        {step === 9 ? <ResultPage /> : null}
       </Box>
     </>
   );

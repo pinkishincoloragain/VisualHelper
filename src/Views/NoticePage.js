@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography, Switch } from "@mui/material";
 import { useState, useEffect } from "react";
 import Flower from "../assets/Flower.webp";
 import Button2 from "../Components/Button2";
 import { useSelector } from "react-redux";
-import styled from "@emotion/styled";
+import { Typography2 } from "../Components/Styles";
+import { Collapse, FormControl, FormControlLabel } from "@mui/material";
 
 export default function NoticePage() {
   const [test, setTest] = useState(false);
@@ -13,44 +14,56 @@ export default function NoticePage() {
     setTest(!test);
     console.log(test);
   };
+  const [checked, setChecked] = useState(false);
+  const handleChecked = () => {
+    setChecked(!checked);
+  };
+
+  const brightness = !darkMode ? "brightness" : "brightness";
 
   return (
     <Box>
-      <Box sx={{ ml: "5vw", height: "100vh" }}>
+      <Box sx={{ height: "100vh" }}>
         <Box
           sx={{
-            pl: "5vw",
-            pr: "5vw",
-            pt: "10vh",
+            pl: "10vw",
+            pr: "10vw",
+            pt: "4vh",
             width: "80vw",
-            height: "90vh",
+            height: "96vh",
             backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
           }}
         >
           <Typography
-            sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2" }}
-            variant="h3"
+            sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2", mb: "4vh" }}
+            variant="h1"
             fontWeight={"100"}
-            letterSpacing="-1px"
           >
             This test consists of three parts.
           </Typography>
+          <Typography2
+            onClick={handleChecked}
+            name={"1. Color test"}
+            mode={darkMode}
+            sx={{ ":hover": { cursor: "pointer", color: "blue" } }}
+          ></Typography2>
+          <Collapse in={checked}>Fish</Collapse>
+          <Typography2 name={"2. Vision test"} mode={darkMode}></Typography2>
+          <Typography2
+            name={"3. Web proficiency test"}
+            mode={darkMode}
+          ></Typography2>
+
           <Typography
             variant="h4"
             fontWeight={"100"}
+            lineHeight="1.7"
             sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2" }}
           >
             <br />
+            Please adjust your screen {brightness} to your preference.
             <br />
-            Color test
-            <br /> <br />
-            Vision test
-            <br /> <br />
-            Web proficiency test
-            <br />
-            <br />
-            <br />
-            This test will take approximately 3 minutes. To proceed, press
+            This test will take approximately 3 minutes. To proceed, press the
             button below.
             <br />
             <br />

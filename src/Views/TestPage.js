@@ -12,6 +12,7 @@ export default function TestPage(props) {
     <Box
       sx={{
         width: "100vw",
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
@@ -24,7 +25,7 @@ export default function TestPage(props) {
           pt: "2vh",
           ml: "10vw",
           width: "80vw",
-          height: "100vh",
+          height: "100%",
           // borderRadius: "20px",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}

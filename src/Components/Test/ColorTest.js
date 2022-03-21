@@ -14,6 +14,7 @@ const q1 = {
     { name: "12" },
     { name: "I don't know" },
   ],
+  ans: "15",
   image: Plate6,
 };
 const q2 = {
@@ -24,16 +25,18 @@ const q2 = {
     { name: "72" },
     { name: "I don't know" },
   ],
+  ans: "74",
   image: Plate7,
 };
 const q3 = {
   name: "q3",
   options: [
-    { name: "6" },
     { name: "5" },
+    { name: "6" },
     { name: "3" },
     { name: "I don't know" },
   ],
+  ans: "6",
   image: Plate8,
 };
 
