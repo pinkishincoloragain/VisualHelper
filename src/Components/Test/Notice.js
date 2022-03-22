@@ -1,18 +1,20 @@
 import { Box, Button, Typography, Switch } from "@mui/material";
 import { useState, useEffect } from "react";
-import Flower from "../assets/Flower.webp";
-import Button2 from "../Components/Button2";
+import Button2 from "../Button2";
 import { useSelector } from "react-redux";
-import { Typography2 } from "../Components/Styles";
+import { Typography2 } from "../Styles";
 import { Collapse, FormControl, FormControlLabel } from "@mui/material";
 
-export default function NoticePage() {
+export default function Notice(props) {
   const [test, setTest] = useState(false);
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleTest = () => {
+    document.body.requestFullscreen();
+    console.log("fish");
     setTest(!test);
-    console.log(test);
+    console.log("test start");
+    props.handleStep();
   };
   const [checked, setChecked] = useState(false);
   const handleChecked = () => {
@@ -23,14 +25,14 @@ export default function NoticePage() {
 
   return (
     <Box>
-      <Box sx={{ height: "100vh" }}>
+      <Box sx={{ height: "100%" }}>
         <Box
           sx={{
-            pl: "10vw",
-            pr: "10vw",
+            pl: "1vw",
+            pr: "1vw",
             pt: "4vh",
             width: "80vw",
-            height: "96vh",
+            height: "80vh",
             backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
           }}
         >
@@ -68,8 +70,13 @@ export default function NoticePage() {
             <br />
             <br />
           </Typography>
-
-          <Button2 onClick={handleTest} href="test" name="test"></Button2>
+          <Box sx={{ width: "15vw" }}>
+            <Button2
+              sx={{ width: "20vw" }}
+              onClick={handleTest}
+              name="test"
+            ></Button2>
+          </Box>
         </Box>
       </Box>
     </Box>

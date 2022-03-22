@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Box } from "@mui/system";
 import { Button, Typography } from "@mui/material";
 import { useEffect } from "react";
+import PlayArrowRounded from "@mui/icons-material/PlayArrowRounded";
 
 export default function Button2(props) {
   const darkMode = useSelector((state) => state.mode.value);
@@ -12,20 +13,35 @@ export default function Button2(props) {
   }, [darkMode]);
 
   return (
-    <Box
-      sx={{ display: "flex", flexDirection: "column", animationDuration: "2s" }}
+    <Button
+      onClick={props.onClick}
+      href={props.href}
+      sx={{
+        width: "100%",
+        height: "8vh",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "flex-start",
+        justifyContent: "flex-start",
+        "&:hover": {
+          color: "red",
+        },
+        "&:focus": {
+          color: "red",
+        },
+      }}
     >
-      <Button
-        onClick={props.onClick}
-        href={props.href}
+      <Box
         sx={{
-          width: "30vw",
-          height: "8vh",
-          alignItems: "flex-start",
-          justifyContent: "flex-start",
-          ...props.sx,
+          width: "5vw",
+          display: "flex",
+          margin: "auto",
+          flex: "2",
         }}
       >
+        <PlayArrowRounded fontSize={"large"} />
+      </Box>
+      <Box sx={{ margin: "auto" }}>
         <Typography
           variant="h3"
           color={mode ? "#f2f2f2" : "#1f1f1f"}
@@ -33,16 +49,7 @@ export default function Button2(props) {
         >
           {props.name}
         </Typography>
-      </Button>
-      {/* Will be changed to shrinking bar */}
-
-      <Box
-        sx={{
-          width: "30vw",
-          height: "0.5vh",
-          backgroundColor: mode ? "#f2f2f2" : "#1f1f1f",
-        }}
-      ></Box>
-    </Box>
+      </Box>
+    </Button>
   );
 }

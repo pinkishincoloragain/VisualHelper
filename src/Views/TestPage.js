@@ -11,8 +11,8 @@ export default function TestPage(props) {
   return (
     <Box
       sx={{
-        width: "100%",
-        height: "100%",
+        width: "max(100%,100vw)",
+        height: "120vh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
@@ -22,7 +22,7 @@ export default function TestPage(props) {
         data-aos="fade-up"
         elevation={4}
         sx={{
-          pt: "2vh",
+          mt: "2vh",
           ml: "10vw",
           width: "80vw",
           height: "100%",

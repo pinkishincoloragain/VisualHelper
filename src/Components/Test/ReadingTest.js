@@ -5,6 +5,7 @@ import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
 import { useSelector } from "react-redux";
+import { TextBox } from "../Styles";
 
 const q4 = {
   name: "q4",
@@ -46,7 +47,7 @@ const ReadingTest = (props) => {
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",
-          ml: "5vh",
+          ml: "5vw",
           mb: "2vh",
         }}
         variant="h3"
@@ -55,7 +56,7 @@ const ReadingTest = (props) => {
       </Typography>
       <Box
         sx={{
-          px: "5vh",
+          px: "0vh",
           // height: "50vh",
           display: "flex",
           flexDirection: "row",
@@ -69,47 +70,33 @@ const ReadingTest = (props) => {
             backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
-            alignItems: "center",
+            justifyContent: "center",
+            mt: "20vh",
+            // border: "1px solid #f2f2f2",
           }}
         >
+          <TextBox text={questions[props.qNum].text1} darkMode={true}></TextBox>
           <Box
             sx={{
-              p: "1rem",
-              width: "50%",
-              height: "50%",
-              backgroundColor: "#f2f2f2",
+              display: "flex",
+              width: "15vw",
+              // margin: "auto",
+              mt: "20vh",
+              ml: "30vw",
             }}
           >
-            <Typography sx={{ px: "4vw" }} variant="h6" color="#1f1f1f">
-              {questions[props.qNum].text1}
-            </Typography>
-          </Box>
-          <Box
-            sx={{
-              p: "1rem",
-              width: "50%",
-              height: "50%",
-              backgroundColor: "#1f1f1f",
-            }}
-          >
-            <Typography
-              sx={{ mx: "4vw", my: "4vh", color: "#f2f2f2" }}
-              variant="h6"
-              color="#1f1f1f"
-            >
-              {questions[props.qNum].text2}
-            </Typography>
+            <Button2
+              sx={{
+                ml: "5vw",
+                mt: "20vh",
+                width: "20vw",
+              }}
+              name="Finish"
+              onClick={handleClick}
+            ></Button2>
           </Box>
         </Box>
       </Box>
-      <Button2
-        sx={{
-          ml: "5vh",
-        }}
-        name="Finish"
-        onClick={handleClick}
-      ></Button2>
     </>
   );
 };
