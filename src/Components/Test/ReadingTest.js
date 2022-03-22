@@ -56,18 +56,19 @@ const ReadingTest = (props) => {
       <Box
         sx={{
           px: "5vh",
+          // height: "50vh",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#a4a4a4",
+          // backgroundColor: "#a4a4a4",
         }}
       >
         <Box
           sx={{
             backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -93,7 +94,7 @@ const ReadingTest = (props) => {
             }}
           >
             <Typography
-              sx={{ px: "4vw", color: "#f2f2f2" }}
+              sx={{ mx: "4vw", my: "4vh", color: "#f2f2f2" }}
               variant="h6"
               color="#1f1f1f"
             >

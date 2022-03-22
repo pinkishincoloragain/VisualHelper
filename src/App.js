@@ -25,8 +25,8 @@ function App() {
         display: "flex",
         flexDirection: "column",
         backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
-        width: "100vw",
-        height: "100vh",
+        width: "100%",
+        height: "100%",
       }}
       className="App"
     >

@@ -7,6 +7,8 @@ import { ColorTest } from "./ColorTest";
 import NoticePage from "../../Views/NoticePage";
 import PreTest from "./PreTest";
 import ResultPage from "../../Views/ResultPage";
+import { useMemo } from "react";
+import styled, { keyframes } from "@emotion/react";
 
 export default function Test() {
   const darkMode = useSelector((state) => state.mode.value);
@@ -14,10 +16,43 @@ export default function Test() {
   const [step, setStep] = useState(0);
   const [test, setTest] = useState([]);
 
+  const timeBar = keyframes`
+    0% {
+      width: 0%;
+      }
+      100% {
+        width: 100%;
+        }
+        `;
+
+  const Timebar = useMemo(() => {
+    return (
+      <Box
+        sx={{
+          width: "0vw",
+          height: "6vh",
+          alignItems: "center",
+          // justifyContent: "center",
+          backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
+          animation: `${timeBar} 30s linear`,
+          animationDelay: `0s`,
+        }}
+      >
+        <Typography
+          pl={8}
+          color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
+          fontSize={"h4.fontSize"}
+        >
+          {/* {Math.floor(time / 10)} */}
+        </Typography>
+      </Box>
+    );
+  });
+
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
-    }, 10);
+    }, 100);
     return () => clearInterval(interval);
   }, [time, step]);
 
@@ -29,7 +64,7 @@ export default function Test() {
 
   const handleTime = () => {
     setTime(time + 0.1);
-    if (time >= 30000) {
+    if (time >= 300) {
       setStep(step + 1);
       setTime(0);
     }
@@ -50,23 +85,7 @@ export default function Test() {
           backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
-        <Box
-          sx={{
-            width: (time * 0.8) / 3 + "vw",
-            height: "6vh",
-            alignItems: "center",
-            // justifyContent: "center",
-            backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
-          }}
-        >
-          <Typography
-            pl={8}
-            color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
-            fontSize={"h4.fontSize"}
-          >
-            {/* {Math.floor(time / 10)} */}
-          </Typography>
-        </Box>
+        {Timebar}
       </Paper>
 
       <Box
