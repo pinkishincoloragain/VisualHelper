@@ -7,7 +7,7 @@ import Plate8 from "../../assets/test/Plate8.gif";
 import { useSelector } from "react-redux";
 import { TextBox } from "../Styles";
 
-const q4 = {
+const q7 = {
   name: "q4",
   text1: `The head, or the spherical body part that contains the brain and rests at the top of the human body,
   has quite a few individual organs and body parts on it. (It should quickly be mentioned that hair
@@ -21,10 +21,10 @@ const q4 = {
   small, white-colored, pointed body parts used to chew food, and the tongue, or a red-colored,
   boneless organ used to chew food and speak.`,
 };
-const q5 = {
+const q8 = {
   name: "q5",
 };
-const q6 = {
+const q9 = {
   name: "q6",
   text: `The legs are the long, muscular body parts that allow humans to move from one spot to another and
   perform a variety of actions. Each leg contains a thigh (a thick, especially muscular body part used to
@@ -33,7 +33,7 @@ const q6 = {
   bottom of legs, and each foot is comprised of five toes, or small appendages that help balance.`,
 };
 
-const questions = [q4, q5, q6];
+const questions = [q7, q8, q9];
 
 const ReadingTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
@@ -75,7 +75,10 @@ const ReadingTest = (props) => {
             // border: "1px solid #f2f2f2",
           }}
         >
-          <TextBox text={questions[props.qNum].text1} darkMode={true}></TextBox>
+          <TextBox
+            text={questions[props.qNum].text1}
+            darkMode={false}
+          ></TextBox>
           <Box
             sx={{
               display: "flex",

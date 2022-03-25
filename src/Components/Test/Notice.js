@@ -10,7 +10,7 @@ export default function Notice(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleTest = () => {
-    document.body.requestFullscreen();
+    // document.body.requestFullscreen();
     console.log("fish");
     setTest(!test);
     console.log("test start");

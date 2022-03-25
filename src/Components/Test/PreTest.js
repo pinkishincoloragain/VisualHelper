@@ -24,7 +24,7 @@ export default function PreTest(props) {
         <br />
         <br />
       </Typography>
-      <Box sx={{ width: "40vw" }}>
+      <Box sx={{ width: "25vw" }}>
         <Button2 name={"start test"} onClick={props.handleStep}></Button2>
       </Box>
     </Box>

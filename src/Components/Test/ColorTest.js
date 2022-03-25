@@ -1,6 +1,9 @@
 import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import Button2 from "../Button2";
+import Plate3 from "../../assets/test/Plate3.gif";
+import Plate4 from "../../assets/test/Plate4.gif";
+import Plate5 from "../../assets/test/Plate5.gif";
 import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
@@ -39,8 +42,41 @@ const q3 = {
   ans: "6",
   image: Plate8,
 };
+const q4 = {
+  name: "q3",
+  options: [
+    { name: "26" },
+    { name: "29" },
+    { name: "3" },
+    { name: "I don't know" },
+  ],
+  ans: "6",
+  image: Plate3,
+};
+const q5 = {
+  name: "q3",
+  options: [
+    { name: "7" },
+    { name: "5" },
+    { name: "15" },
+    { name: "I don't know" },
+  ],
+  ans: "6",
+  image: Plate4,
+};
+const q6 = {
+  name: "q3",
+  options: [
+    { name: "5" },
+    { name: "6" },
+    { name: "3" },
+    { name: "I don't know" },
+  ],
+  ans: "6",
+  image: Plate5,
+};
 
-const questions = [q1, q2, q3];
+const questions = [q1, q2, q3, q4, q5, q6];
 
 const ColorTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);

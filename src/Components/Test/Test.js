@@ -12,12 +12,17 @@ import styled, { keyframes } from "@emotion/react";
 
 function TimeBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
+  const [rerender, setRerender] = useState(false);
+
+  useEffect(() => {
+    console.log(props.step);
+  }, [props.step]);
 
   const timeBar = keyframes`
-  0% {
+  from {
     width: 0%;
     }
-    100% {
+    to {
       width: 100%;
       }
       `;
@@ -30,16 +35,16 @@ function TimeBar(props) {
         alignItems: "center",
         // justifyContent: "center",
         backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
-        animation: `${timeBar} 30s linear infinite`,
+        animation: `${timeBar} 30s linear`,
       }}
     >
-      <Typography
+      {/* <Typography
         pl={8}
         color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
-        fontSize={"h4.fontSize"}
-      >
-        {/* {Math.floor(time / 10)} */}
-      </Typography>
+        fontSize={"h4.f ontSize"}
+      > */}
+      {/* {Math.floor(time / 10)} */}
+      {/* </Typography> */}
     </Box>
   );
 }
@@ -50,12 +55,11 @@ export default function Test() {
   const [step, setStep] = useState(-1);
   const [test, setTest] = useState([]);
 
-  const Timebar = useMemo(() => {});
-
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
     }, 100);
+    console.log(time);
     return () => clearInterval(interval);
   }, [time, step]);
 
@@ -63,6 +67,7 @@ export default function Test() {
     setTest([...test, [answer, time]]);
     setStep(step + 1);
     setTime(0);
+    console.log(test);
   };
 
   const handleTime = () => {
@@ -93,7 +98,7 @@ export default function Test() {
               backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
             }}
           >
-            <TimeBar />
+            <TimeBar step={step} timeLimit={30} />
           </Paper>
 
           <Box
@@ -108,19 +113,19 @@ export default function Test() {
               flexDirection: "column",
             }}
           >
-            {0 <= step && step < 3 ? (
+            {0 <= step && step < 6 ? (
               <ColorTest qNum={step} handleStep={handleStep} />
             ) : null}
             {/* {step < 3 ? <PreTest handleStep={handleStep} /> : null} */}
-            {step === 3 ? <PreTest handleStep={handleStep} /> : null}
-            {4 <= step && step < 10 ? (
-              <ReadingTest qNum={step - 4} handleStep={handleStep} />
+            {step === 6 ? <PreTest handleStep={handleStep} /> : null}
+            {6 < step && step <= 12 ? (
+              <ReadingTest qNum={step - 7} handleStep={handleStep} />
             ) : null}
-            {step === 10 ? <PreTest /> : null}
-            {11 <= step && step < 14 ? (
-              <ColorTest qNum={step - 11} handleStep={handleStep} />
+            {step === 13 ? <PreTest /> : null}
+            {13 < step && step <= 17 ? (
+              <ColorTest qNum={step - 13} handleStep={handleStep} />
             ) : null}
-            {step === 14 ? <ResultPage /> : null}
+            {step === 18 ? <ResultPage /> : null}
           </Box>
         </>
       )}
