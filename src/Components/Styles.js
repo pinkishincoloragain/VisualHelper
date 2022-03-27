@@ -22,6 +22,7 @@ const TextBox = (props) => {
         width: "100%",
         height: "100%",
         backgroundColor: !props.darkMode ? "#f2f2f2" : "#1f1f1f",
+        border: !props.darkMode ? "solid red 1px" : "solid yellow 1px",
         ...props.sx,
       }}
     >

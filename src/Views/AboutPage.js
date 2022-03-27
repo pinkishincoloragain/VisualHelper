@@ -1,6 +1,6 @@
 import { Box, List, ListItem, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
-import BackButton from "../Components/BackButton";
+import LinkButton from "../Components/LinkButton";
 
 export default function AboutPage() {
   const darkMode = useSelector((state) => state.mode.value);
@@ -21,9 +21,18 @@ export default function AboutPage() {
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
-        <BackButton />
+        <LinkButton
+          name="Go back"
+          sx={{ width: "20vw", mb: "5vh" }}
+          href={"/"}
+        />
 
-        <Box color={!darkMode ? "#1f1f1f" : "#f2f2f2"}>
+        <Box
+          sx={{
+            px: "5vw",
+            color: !darkMode ? "#1f1f1f" : "#f2f2f2",
+          }}
+        >
           <Typography variant="h1">Visualhelper</Typography>
           <br />
           <List>

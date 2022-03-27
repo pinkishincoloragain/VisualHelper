@@ -2,7 +2,7 @@ import Button2 from "./Button2";
 import { Box, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 
-export default function BackButton(props) {
+export default function LinkButton(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const handleClick = () => {
     window.history.back();
@@ -10,15 +10,17 @@ export default function BackButton(props) {
   return (
     <Box
       sx={{
-        width: "5vw",
+        // width: "6vw",
         height: "5vh",
+        ...props.sx
       }}
     >
       <Button2
         onClick={handleClick}
-        name={"back"}
+        name={props.name}
+        href={props.href}
         sx={{
-          height: "10vh",
+          // height: "10vh",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       />

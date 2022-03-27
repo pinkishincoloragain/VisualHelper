@@ -38,6 +38,7 @@ function TimeBar(props) {
         animation: `${timeBar} 30s linear`,
       }}
     >
+      {props.step}
       {/* <Typography
         pl={8}
         color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
@@ -114,7 +115,7 @@ export default function Test() {
             }}
           >
             {0 <= step && step < 6 ? (
-              <ColorTest qNum={step} handleStep={handleStep} />
+              <ReadingTest qNum={step} handleStep={handleStep} />
             ) : null}
             {/* {step < 3 ? <PreTest handleStep={handleStep} /> : null} */}
             {step === 6 ? <PreTest handleStep={handleStep} /> : null}

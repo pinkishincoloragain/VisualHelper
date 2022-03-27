@@ -29,6 +29,7 @@ export default function Button2(props) {
         "&:focus": {
           color: "red",
         },
+        ...props.sx,
       }}
     >
       <Box

@@ -71,14 +71,14 @@ const ReadingTest = (props) => {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            mt: "20vh",
+            mt: "10vh",
             // border: "1px solid #f2f2f2",
           }}
         >
-          <TextBox
-            text={questions[props.qNum].text1}
-            darkMode={false}
-          ></TextBox>
+          <TextBox text={questions[props.qNum].text1} darkMode={false} />
+          <Button2 name="finished" sx={{ mb: "10vh" }} />
+          <TextBox text={questions[props.qNum].text2} darkMode={true} />
+          <Button2 name="finished" />
           <Box
             sx={{
               display: "flex",
