@@ -9,8 +9,8 @@ export default function TextBox(props) {
       <Box
         sx={{
           p: "1rem",
-          width: "80%",
-          height: "100%",
+          width: "40vw",
+          height: "10vh",
           backgroundColor: !props.darkMode ? "#f2f2f2" : "#1f1f1f",
           border: !props.darkMode ? "solid red 1px" : "solid yellow 1px",
           ...props.sx,

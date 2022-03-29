@@ -97,7 +97,6 @@ const ReadingTest = (props) => {
             // border: "1px solid #f2f2f2",
           }}
         >
-          {/* {console.log("qNum: " + props.qNum)} */}
           {questionForm()}
         </Box>
       </Box>

@@ -18,23 +18,18 @@ from {
     width: 100%;
     }
     `;
+const timeBar2 = keyframes`
+    from {
+      width: 0%;
+      }
+      to {
+        width: 100%;
+        }
+        `;
 
 function TimeBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const timeBarRef = useRef(null);
-
-  useEffect(() => {
-    setInterval(() => {
-      handleTimeBar();
-      console.log("fish");
-      console.log(props.step);
-    }, 1000);
-  });
-
-  const handleTimeBar = () => {
-    timeBarRef.current.style.animation = "none";
-    // timeBarRef.current.style.animation = `${timeBar} 30s linear`;
-  };
 
   return (
     <Box
@@ -44,7 +39,10 @@ function TimeBar(props) {
         alignItems: "center",
         // justifyContent: "center",
         backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
-        animation: `${timeBar} 30s linear`,
+        animation:
+          props.step % 2 == 0
+            ? `${timeBar} 30s linear`
+            : `${timeBar2} 30s linear`,
       }}
       ref={timeBarRef}
     ></Box>
@@ -71,7 +69,7 @@ export default function Test() {
     setTest([...test, [answer, time]]);
     setStep(step + 1);
     setTime(0);
-    console.log(test);
+    console.log(step);
   };
 
   const handleTime = () => {
@@ -81,7 +79,7 @@ export default function Test() {
       setStep(step + 1);
       setTime(0);
     }
-    // console.log(time);
+    console.log(time);
   };
 
   return (
@@ -102,7 +100,12 @@ export default function Test() {
               backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
             }}
           >
-            <TimeBar step={step} />
+            {/* <Box sx={{ display: "flex", flexDirection: "column" }}> */}
+              <TimeBar step={step} />
+
+              {/* {step < 3 ? <TimeBar step={step} /> : null} */}
+            {/* </Box> */}
+            {6 < step && step <= 12 ? <TimeBar step={step} /> : null}
           </Paper>
 
           <Box
