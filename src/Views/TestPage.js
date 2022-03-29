@@ -12,7 +12,7 @@ export default function TestPage(props) {
     <Box
       sx={{
         width: "max(100%,100vw)",
-        height: "100%",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",

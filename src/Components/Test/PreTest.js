@@ -13,13 +13,14 @@ export default function PreTest(props) {
         color: darkMode ? "#f2f2f2" : "#1f1f1f",
       }}
     >
-      <Typography variant="h1">Reading Test</Typography>
+      <Typography variant="h2">Reading Test</Typography>
       <br />
       <br />
-      <Typography variant="h4">
+      <Typography variant="h5" lineHeight={2}>
         Next step is reading test.
         <br /> You will read a short paragraph and click the button as soon as
         finished reading.
+        <br /> Timer will begin as soon as you click on the button.
         <br />
         <br />
         <br />
