@@ -12,7 +12,7 @@ export default function LinkButton(props) {
       sx={{
         // width: "6vw",
         height: "5vh",
-        ...props.sx
+        ...props.sx,
       }}
     >
       <Button2

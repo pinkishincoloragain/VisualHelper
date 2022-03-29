@@ -24,19 +24,19 @@ export default function Notice(props) {
   const brightness = !darkMode ? "brightness" : "brightness";
 
   return (
-    <Box sx={{ height: "100%" }}>
+    <Box sx={{ height: "98vh" }}>
       <Box
         sx={{
           pl: "1vw",
           pr: "1vw",
           pt: "4vh",
-          width: "80vw",
+          width: "70vw",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
         <Typography
           sx={{ color: !darkMode ? "#1f1f1f" : "#f2f2f2", mb: "4vh" }}
-          variant="h1"
+          variant="h2"
           fontWeight={"100"}
         >
           This test consists of three parts.
@@ -63,8 +63,8 @@ export default function Notice(props) {
           <br />
           Please adjust your screen {brightness} to your preference.
           <br />
-          This test will take approximately 3 minutes. To proceed, press the
-          button below.
+          This test will take approximately 3 minutes.
+          <br /> To proceed, press the button below.
           <br />
           <br />
         </Typography>

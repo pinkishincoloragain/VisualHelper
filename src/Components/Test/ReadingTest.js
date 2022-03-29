@@ -5,7 +5,7 @@ import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
 import { useSelector } from "react-redux";
-import { TextBox } from "../Styles";
+import TextBox from "./TextBox";
 
 const q7 = {
   name: "q4",
@@ -23,6 +23,8 @@ const q7 = {
 };
 const q8 = {
   name: "q5",
+  text1: "fish",
+  text2: "fish2",
 };
 const q9 = {
   name: "q6",
@@ -35,11 +37,31 @@ const q9 = {
 
 const questions = [q7, q8, q9];
 
+// configuration : darkmode, font, ...
+const configuration = [];
+
 const ReadingTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleClick = () => {
     props.handleStep();
+  };
+
+  const questionForm = () => {
+    return (
+      <>
+        <TextBox
+          onClick={handleClick}
+          text={questions[props.qNum].text1}
+          darkMode={false}
+        />
+        <TextBox
+          onClick={handleClick}
+          text={questions[props.qNum].text2}
+          darkMode={true}
+        />
+      </>
+    );
   };
 
   return (
@@ -75,29 +97,8 @@ const ReadingTest = (props) => {
             // border: "1px solid #f2f2f2",
           }}
         >
-          <TextBox text={questions[props.qNum].text1} darkMode={false} />
-          <Button2 name="finished" sx={{ mb: "10vh" }} />
-          <TextBox text={questions[props.qNum].text2} darkMode={true} />
-          <Button2 name="finished" />
-          <Box
-            sx={{
-              display: "flex",
-              width: "15vw",
-              // margin: "auto",
-              mt: "20vh",
-              ml: "30vw",
-            }}
-          >
-            <Button2
-              sx={{
-                ml: "5vw",
-                mt: "20vh",
-                width: "20vw",
-              }}
-              name="Finish"
-              onClick={handleClick}
-            ></Button2>
-          </Box>
+          {/* {console.log("qNum: " + props.qNum)} */}
+          {questionForm()}
         </Box>
       </Box>
     </>

@@ -1,9 +1,11 @@
-import { Typography, Box } from "@mui/material";
+import { useState } from "react";
+
+import { Typography } from "@mui/material";
 
 const Typography2 = (props) => {
   return (
     <Typography
-      variant="h3"
+      variant="h4"
       fontWeight={"100"}
       lineHeight="1.7"
       onClick={props.onClick}
@@ -14,27 +16,4 @@ const Typography2 = (props) => {
   );
 };
 
-const TextBox = (props) => {
-  return (
-    <Box
-      sx={{
-        p: "1rem",
-        width: "100%",
-        height: "100%",
-        backgroundColor: !props.darkMode ? "#f2f2f2" : "#1f1f1f",
-        border: !props.darkMode ? "solid red 1px" : "solid yellow 1px",
-        ...props.sx,
-      }}
-    >
-      <Typography
-        sx={{ px: "4vw" }}
-        variant="h6"
-        color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
-      >
-        {props.text}
-      </Typography>
-    </Box>
-  );
-};
-
-export { Typography2, TextBox };
+export { Typography2 };

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
@@ -10,22 +10,31 @@ import ResultPage from "../../Views/ResultPage";
 import { useMemo } from "react";
 import styled, { keyframes } from "@emotion/react";
 
+const timeBar = keyframes`
+from {
+  width: 0%;
+  }
+  to {
+    width: 100%;
+    }
+    `;
+
 function TimeBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
-  const [rerender, setRerender] = useState(false);
+  const timeBarRef = useRef(null);
 
   useEffect(() => {
-    console.log(props.step);
-  }, [props.step]);
+    setInterval(() => {
+      handleTimeBar();
+      console.log("fish");
+      console.log(props.step);
+    }, 1000);
+  });
 
-  const timeBar = keyframes`
-  from {
-    width: 0%;
-    }
-    to {
-      width: 100%;
-      }
-      `;
+  const handleTimeBar = () => {
+    timeBarRef.current.style.animation = "none";
+    // timeBarRef.current.style.animation = `${timeBar} 30s linear`;
+  };
 
   return (
     <Box
@@ -37,16 +46,8 @@ function TimeBar(props) {
         backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
         animation: `${timeBar} 30s linear`,
       }}
-    >
-      {props.step}
-      {/* <Typography
-        pl={8}
-        color={!darkMode ? "#1f1f1f" : "#f2f2f2"}
-        fontSize={"h4.f ontSize"}
-      > */}
-      {/* {Math.floor(time / 10)} */}
-      {/* </Typography> */}
-    </Box>
+      ref={timeBarRef}
+    ></Box>
   );
 }
 
@@ -56,11 +57,13 @@ export default function Test() {
   const [step, setStep] = useState(-1);
   const [test, setTest] = useState([]);
 
+  // const [rerender, setRerender] = useState(false);
+
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
     }, 100);
-    console.log(time);
+    // console.log(time);
     return () => clearInterval(interval);
   }, [time, step]);
 
@@ -99,7 +102,7 @@ export default function Test() {
               backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
             }}
           >
-            <TimeBar step={step} timeLimit={30} />
+            <TimeBar step={step} />
           </Paper>
 
           <Box
@@ -112,6 +115,7 @@ export default function Test() {
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
               display: "flex",
               flexDirection: "column",
+              height: "100vh",
             }}
           >
             {0 <= step && step < 6 ? (

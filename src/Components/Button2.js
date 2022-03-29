@@ -44,9 +44,9 @@ export default function Button2(props) {
       </Box>
       <Box sx={{ margin: "auto" }}>
         <Typography
-          variant="h3"
+          variant="h4"
           color={mode ? "#f2f2f2" : "#1f1f1f"}
-          fontSize={"h3.fontSize"}
+          fontSize={"h4.fontSize"}
         >
           {props.name}
         </Typography>
