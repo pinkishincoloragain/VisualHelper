@@ -43,8 +43,11 @@ const configuration = [];
 const ReadingTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
 
-  const handleClick = () => {
-    props.handleStep();
+  const handleStartClick = () => {
+    props.setTimeInterval(0);
+  };
+  const handleEndClick = () => {
+    props.setTimeInterval(1);
   };
 
   const questionForm = () => {

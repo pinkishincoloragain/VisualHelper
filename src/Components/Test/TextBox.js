@@ -6,6 +6,12 @@ import TimeBar from "./TimeBar";
 export default function TextBox(props) {
   const [show, setShow] = useState(false);
   const [btnShow, setBtnShow] = useState(false);
+
+  const handleClick = () => {
+    setBtnShow();
+    props.onclick();
+  };
+
   return (
     <>
       <Box

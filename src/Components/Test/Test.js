@@ -17,6 +17,7 @@ export default function Test() {
   const [time2, setTime2] = useState(0);
   const [step, setStep] = useState(-1);
   const [test, setTest] = useState([]);
+  const [timeInterval, setTimeInterval] = useState(1);
 
   // const [rerender, setRerender] = useState(false);
 
@@ -26,23 +27,25 @@ export default function Test() {
     }, 100);
     // console.log(time);
     return () => clearInterval(interval);
-  }, [time, step]);
+  }, [time, time2, step]);
 
   const handleStep = (answer) => {
     setTest([...test, [answer, time]]);
     setStep(step + 1);
     setTime(0);
+    setTime2(0);
     console.log(step);
   };
 
   const handleTime = () => {
     // console.log(time);
-    setTime(time + 1);
-    if (time >= 300) {
+    if (time >= 300 || time2 >= 300) {
       setStep(step + 1);
       setTime(0);
+      setTime2(0);
     }
-    console.log(time);
+    setTime(time + timeInterval);
+    setTime2(time2 + timeInterval);
   };
 
   return (
@@ -64,17 +67,18 @@ export default function Test() {
             }}
           >
             {step < 6 ? <TimeBar time={time} step={step} /> : null}
-            {/* <TimeBar step={step} /> */}
             {6 < step && step <= 12 ? (
               <>
                 <TimeBar time={time} step={step} />
                 <TimeBar
-                  time={time}
+                  time={time2}
+                  setTime2={setTime2}
                   step={step}
                   sx={{ backgroundColor: "red" }}
                 />
               </>
             ) : null}
+            {/* <TimeBar step={step} /> */}
           </Paper>
 
           <Box
@@ -96,7 +100,11 @@ export default function Test() {
             {/* {step < 3 ? <PreTest handleStep={handleStep} /> : null} */}
             {step === 6 ? <PreTest handleStep={handleStep} /> : null}
             {6 < step && step <= 12 ? (
-              <ReadingTest qNum={step - 7} handleStep={handleStep} />
+              <ReadingTest
+                setTimeInterval={setTimeInterval}
+                qNum={step - 7}
+                handleStep={handleStep}
+              />
             ) : null}
             {step === 13 ? <PreTest /> : null}
             {13 < step && step <= 17 ? (
