@@ -26,7 +26,7 @@ export default function LandingPage() {
           alignItems: "center",
           margin: "auto",
           width: "90vw",
-          height: "90vh",
+          height: "100%",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
@@ -36,6 +36,7 @@ export default function LandingPage() {
             flexDirection: "row",
             justifyContent: "space-between",
             margin: "auto",
+            // height: "100vh",
           }}
         >
           <Box
@@ -53,13 +54,13 @@ export default function LandingPage() {
             <Button2 name="Contact"></Button2>
             <Button2 name="Light" onClick={handleChange}></Button2>
           </Box>
-          <img
+          {/* <img
             style={{
               width: "min(50vw,50vh)",
               // marginLeft: "",
             }}
             src={Flower}
-          />
+          /> */}
         </Box>
       </Box>
     </>

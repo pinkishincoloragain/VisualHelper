@@ -93,20 +93,19 @@ export default function ReadingTest(props) {
             flexDirection: "column",
             justifyContent: "center",
             mt: "10vh",
-            pb: "10vh",
+            px: "5vw",
+            // pb: "10vh",
             // border: "1px solid #f2f2f2",
           }}
         >
-          <TextBox
-            handleClick={handleClickTest1}
-            text={questions[props.qNum].text1}
-            darkMode={false}
-          />
-          <TextBox
-            handleClick={handleClickTest2}
-            text={questions[props.qNum].text2}
-            darkMode={true}
-          />
+          <Typography variant="h6" color="white">
+            {questions[0].text1}
+          </Typography>
+          <br />
+          <Typography variant="h6" color="white">
+            {questions[0].text2}
+          </Typography>
+          <Button2 name="next" onClick={props.handleStep} />
         </Box>
       </Box>
     </>

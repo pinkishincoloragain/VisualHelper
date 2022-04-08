@@ -56,10 +56,10 @@ export default function Test() {
       setTime2(0);
     }
 
-    console.log("timeInterval1", timeInterval1);
-    console.log("time", time);
-    console.log("timeInterval2", timeInterval2);
-    console.log("time2", time2);
+    // console.log("timeInterval1", timeInterval1);
+    // console.log("time", time);
+    // console.log("timeInterval2", timeInterval2);
+    // console.log("time2", time2);
 
     setTime(time + timeInterval1);
     setTime2(time2 + timeInterval2);
@@ -115,7 +115,7 @@ export default function Test() {
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
               display: "flex",
               flexDirection: "column",
-              height: "100%",
+              height: "94vh",
             }}
           >
             {0 <= step && step < 6 ? (

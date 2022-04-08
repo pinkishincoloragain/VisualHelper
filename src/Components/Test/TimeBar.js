@@ -36,8 +36,8 @@ export default function TimeBar(props) {
   //   }
   // });
 
-  console.log("Timebar - props.interval", props.interval);
-  console.log("Timebar - props.time", props.time);
+  // console.log("Timebar - props.interval", props.interval);
+  // console.log("Timebar - props.time", props.time);
 
   return (
     <Box
