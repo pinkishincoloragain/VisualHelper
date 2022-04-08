@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import WebProTest from "./WebProTest";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { ReadingTest } from "./ReadingTest";
@@ -10,6 +11,7 @@ import ResultPage from "../../Views/ResultPage";
 import { useMemo } from "react";
 import styled, { keyframes } from "@emotion/react";
 import TimeBar from "./TimeBar";
+import React from "react";
 
 export default function Test() {
   const darkMode = useSelector((state) => state.mode.value);
@@ -17,17 +19,26 @@ export default function Test() {
   const [time2, setTime2] = useState(0);
   const [step, setStep] = useState(-1);
   const [test, setTest] = useState([]);
-  const [timeInterval, setTimeInterval] = useState(1);
+  const [timeInterval1, setTimeInterval1] = useState(1);
+  const [timeInterval2, setTimeInterval2] = useState(1);
 
   // const [rerender, setRerender] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       handleTime();
+      // console.log(timeInterval1);
     }, 100);
+
     // console.log(time);
     return () => clearInterval(interval);
   }, [time, time2, step]);
+
+  // useEffect(() => {
+  //   if (6 <= step && step <= 12) {
+  //     // setTimeInterval(0);
+  //   }
+  // });
 
   const handleStep = (answer) => {
     setTest([...test, [answer, time]]);
@@ -39,13 +50,24 @@ export default function Test() {
 
   const handleTime = () => {
     // console.log(time);
-    if (time >= 300 || time2 >= 300) {
+    if (time >= 3000 || time2 >= 3000) {
       setStep(step + 1);
       setTime(0);
       setTime2(0);
     }
-    setTime(time + timeInterval);
-    setTime2(time2 + timeInterval);
+
+    console.log("timeInterval1", timeInterval1);
+    console.log("time", time);
+    console.log("timeInterval2", timeInterval2);
+    console.log("time2", time2);
+
+    setTime(time + timeInterval1);
+    setTime2(time2 + timeInterval2);
+  };
+
+  const handleTimeInterval1 = (t) => {
+    console.log("timeInterval1", t);
+    setTimeInterval1(t);
   };
 
   return (
@@ -66,14 +88,16 @@ export default function Test() {
               backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
             }}
           >
-            {step < 6 ? <TimeBar time={time} step={step} /> : null}
+            {step < 6 ? (
+              <TimeBar interval={timeInterval1} time={time} step={step} />
+            ) : null}
             {6 < step && step <= 12 ? (
               <>
-                <TimeBar time={time} step={step} />
+                <TimeBar time={time} step={step} interval={timeInterval1} />
                 <TimeBar
                   time={time2}
-                  setTime2={setTime2}
                   step={step}
+                  interval={timeInterval2}
                   sx={{ backgroundColor: "red" }}
                 />
               </>
@@ -95,13 +119,21 @@ export default function Test() {
             }}
           >
             {0 <= step && step < 6 ? (
+              // <WebProTest handleStep={handleStep} />
               <ColorTest qNum={step} handleStep={handleStep} />
+            ) : // <ColorTest qNum={step} handleStep={handleStep} />
+            null}
+            {step === 6 ? (
+              <PreTest
+                setTimeInterval1={handleTimeInterval1}
+                setTimeInterval2={setTimeInterval2}
+                handleStep={handleStep}
+              />
             ) : null}
-            {/* {step < 3 ? <PreTest handleStep={handleStep} /> : null} */}
-            {step === 6 ? <PreTest handleStep={handleStep} /> : null}
             {6 < step && step <= 12 ? (
               <ReadingTest
-                setTimeInterval={setTimeInterval}
+                setTimeInterval1={handleTimeInterval1}
+                setTimeInterval2={setTimeInterval2}
                 qNum={step - 7}
                 handleStep={handleStep}
               />

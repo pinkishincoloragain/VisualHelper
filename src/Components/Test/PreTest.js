@@ -1,9 +1,16 @@
 import { Box, Typography } from "@mui/material";
 import Button2 from "../Button2";
 import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function PreTest(props) {
   const darkMode = useSelector((state) => state.mode.value);
+
+  useEffect(() => {
+    props.setTimeInterval1(0);
+    props.setTimeInterval2(0);
+    console.log("pretest- useEffect");
+  });
 
   return (
     <Box

@@ -23,18 +23,26 @@ import { keyframes } from "@emotion/react";
 export default function TimeBar(props) {
   const darkMode = useSelector((state) => state.mode.value);
   const timeBarRef = useRef(null);
-  const [start, setStart] = useState(true);
+  const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    if (props.start !== null) {
-      setStart(props.start);
-    }
+    setWidth((props.time / 300) * 100);
   });
+  // const [start, setStart] = useState(true);
+
+  // useEffect(() => {
+  //   if (props.start !== null) {
+  //     setStart(props.start);
+  //   }
+  // });
+
+  console.log("Timebar - props.interval", props.interval);
+  console.log("Timebar - props.time", props.time);
 
   return (
     <Box
       sx={{
-        width: (props.time / 300) * 100 + "%",
+        width: width + "%",
         height: "6vh",
         alignItems: "center",
         // justifyContent: "center",

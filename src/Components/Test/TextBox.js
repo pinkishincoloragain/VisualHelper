@@ -5,12 +5,6 @@ import TimeBar from "./TimeBar";
 
 export default function TextBox(props) {
   const [show, setShow] = useState(false);
-  const [btnShow, setBtnShow] = useState(false);
-
-  const handleClick = () => {
-    setBtnShow();
-    props.onclick();
-  };
 
   return (
     <>
@@ -18,12 +12,19 @@ export default function TextBox(props) {
         sx={{
           p: "1rem",
           width: "70vw",
-          height: "15vh",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
           backgroundColor: !props.darkMode ? "#f2f2f2" : "#1f1f1f",
           border: !props.darkMode ? "solid red 1px" : "solid yellow 1px",
           ...props.sx,
+          margin: "4vh",
         }}
-        onClick={() => setShow(true)}
+        onClick={() => {
+          setShow(true);
+          props.handleClick();
+        }}
       >
         {show ? (
           <Typography
@@ -33,7 +34,15 @@ export default function TextBox(props) {
           >
             {props.text}
           </Typography>
-        ) : null}
+        ) : (
+          <Typography
+            sx={{ px: "4vw" }}
+            variant="h5"
+            color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
+          >
+            Start test
+          </Typography>
+        )}
       </Box>
       {show ? (
         <Button2
@@ -41,11 +50,12 @@ export default function TextBox(props) {
             color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
           }}
           name="Finish test"
-          onClick={() => setBtnShow(false)}
+          onClick={() => {
+            setShow(false);
+            props.handleClick();
+          }}
         ></Button2>
-      ) : (
-        <Button2 onClick={() => setShow(true)} name="Start test"></Button2>
-      )}
+      ) : null}
     </>
   );
 }

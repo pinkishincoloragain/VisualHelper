@@ -1,4 +1,5 @@
 import { Box } from "@mui/material";
+import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
 import Button2 from "../Button2";
 import Plate6 from "../../assets/test/Plate6.gif";
@@ -40,31 +41,26 @@ const questions = [q7, q8, q9];
 // configuration : darkmode, font, ...
 const configuration = [];
 
-const ReadingTest = (props) => {
+export default function ReadingTest(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
-  const handleStartClick = () => {
-    props.setTimeInterval(0);
-  };
-  const handleEndClick = () => {
-    props.setTimeInterval(1);
-  };
+  const [testing1, setTesting1] = useState(false);
+  const [testing2, setTesting2] = useState(false);
 
-  const questionForm = () => {
-    return (
-      <>
-        <TextBox
-          onClick={handleClick}
-          text={questions[props.qNum].text1}
-          darkMode={false}
-        />
-        <TextBox
-          onClick={handleClick}
-          text={questions[props.qNum].text2}
-          darkMode={true}
-        />
-      </>
+  const handleClickTest1 = () => {
+    console.log(
+      "readingtest- 9handleClickTest1 - timeInterval1",
+      testing1 === false ? 1 : 0
     );
+    props.setTimeInterval1(testing1 === false ? 1 : 0);
+    // props.setTimeInterval1(1);
+    setTesting1(!testing1);
+  };
+  const handleClickTest2 = () => {
+    props.setTimeInterval2(testing2 === false ? 1 : 0);
+    console.log("testing2", testing2);
+
+    setTesting2(!testing2);
   };
 
   return (
@@ -75,7 +71,7 @@ const ReadingTest = (props) => {
           ml: "5vw",
           mb: "2vh",
         }}
-        variant="h3"
+        variant="h4"
       >
         Read the following text and click the button.
       </Typography>
@@ -101,11 +97,20 @@ const ReadingTest = (props) => {
             // border: "1px solid #f2f2f2",
           }}
         >
-          {questionForm()}
+          <TextBox
+            handleClick={handleClickTest1}
+            text={questions[props.qNum].text1}
+            darkMode={false}
+          />
+          <TextBox
+            handleClick={handleClickTest2}
+            text={questions[props.qNum].text2}
+            darkMode={true}
+          />
         </Box>
       </Box>
     </>
   );
-};
+}
 
 export { ReadingTest as ReadingTest };
