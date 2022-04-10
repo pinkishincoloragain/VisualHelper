@@ -7,8 +7,8 @@ export default function PreTest(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   useEffect(() => {
-    props.setTimeInterval1(0);
-    props.setTimeInterval2(0);
+    // props.setTimeInterval1(0);
+    // props.setTimeInterval2(0);
     console.log("pretest- useEffect");
   });
 

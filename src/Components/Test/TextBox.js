@@ -21,41 +21,26 @@ export default function TextBox(props) {
           ...props.sx,
           margin: "4vh",
         }}
+      >
+        <Typography
+          sx={{ px: "4vw" }}
+          variant="h6"
+          color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
+        >
+          {props.text}
+        </Typography>
+      </Box>
+
+      <Button2
+        sx={{
+          color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
+        }}
+        name="Finish test"
         onClick={() => {
-          setShow(true);
+          setShow(false);
           props.handleClick();
         }}
-      >
-        {show ? (
-          <Typography
-            sx={{ px: "4vw" }}
-            variant="h6"
-            color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
-          >
-            {props.text}
-          </Typography>
-        ) : (
-          <Typography
-            sx={{ px: "4vw" }}
-            variant="h5"
-            color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
-          >
-            Start test
-          </Typography>
-        )}
-      </Box>
-      {show ? (
-        <Button2
-          sx={{
-            color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
-          }}
-          name="Finish test"
-          onClick={() => {
-            setShow(false);
-            props.handleClick();
-          }}
-        ></Button2>
-      ) : null}
+      ></Button2>
     </>
   );
 }
