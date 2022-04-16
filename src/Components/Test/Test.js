@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import WebProTest from "./WebProTest";
+import WebProTest from "./WebProTestDesc";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { ReadingTest } from "./ReadingTest";
@@ -45,7 +45,7 @@ export default function Test() {
     setStep(step + 1);
     setTime(0);
     setTime2(0);
-    console.log(step);
+    // console.log(step);
   };
 
   const handleTime = () => {
@@ -56,17 +56,17 @@ export default function Test() {
       setTime2(0);
     }
 
-    console.log("timeInterval1", timeInterval1);
-    console.log("time", time);
-    console.log("timeInterval2", timeInterval2);
-    console.log("time2", time2);
+    // console.log("timeInterval1", timeInterval1);
+    // console.log("time", time);
+    // console.log("timeInterval2", timeInterval2);
+    // console.log("time2", time2);
 
     setTime(time + timeInterval1);
     setTime2(time2 + timeInterval2);
   };
 
   const handleTimeInterval1 = (t) => {
-    console.log("timeInterval1", t);
+    // console.log("timeInterval1", t);
     setTimeInterval1(t);
   };
 
@@ -110,17 +110,16 @@ export default function Test() {
               mt: "5vh",
               mx: "1vw",
               width: "78vw",
-              // height: "100%",
               // borderRadius: "20px",
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
               display: "flex",
               flexDirection: "column",
-              height: "100%",
+              // height: "100%",
             }}
           >
             {0 <= step && step < 6 ? (
               // <WebProTest handleStep={handleStep} />
-              <ColorTest qNum={step} handleStep={handleStep} />
+              <WebProTest qNum={step} handleStep={handleStep} />
             ) : // <ColorTest qNum={step} handleStep={handleStep} />
             null}
             {step === 6 ? (
