@@ -18,20 +18,7 @@ export default function TestPage(props) {
         backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
       }}
     >
-      <Paper
-        data-aos="fade-up"
-        elevation={4}
-        sx={{
-          mt: "2vh",
-          ml: "10vw",
-          width: "80vw",
-          height: "100%",
-          // borderRadius: "20px",
-          backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
-        }}
-      >
-        <Test />
-      </Paper>
+      <Test />
     </Box>
   );
 }

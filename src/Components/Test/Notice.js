@@ -27,8 +27,8 @@ export default function Notice(props) {
     <Box sx={{ height: "98vh" }}>
       <Box
         sx={{
-          pl: "1vw",
-          pr: "1vw",
+          ml: "10vw",
+          px: "1vw",
           pt: "4vh",
           width: "70vw",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",

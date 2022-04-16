@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import WebProTest from "./WebProTestDesc";
+import WebProTest from "./WebProTest";
 import { Typography, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import { ReadingTest } from "./ReadingTest";
@@ -79,6 +79,7 @@ export default function Test() {
           <Paper
             elevation={10}
             sx={{
+              ml: "10vw",
               mt: "2vh",
               width: "80vw",
               height: "6vh",
@@ -108,7 +109,7 @@ export default function Test() {
           <Box
             sx={{
               mt: "5vh",
-              mx: "1vw",
+              // mx: "1vw",
               width: "78vw",
               // borderRadius: "20px",
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",

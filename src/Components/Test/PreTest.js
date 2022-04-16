@@ -17,6 +17,7 @@ export default function PreTest(props) {
       sx={{
         width: "100%",
         height: "100%",
+        ml: "10vw",
         color: darkMode ? "#f2f2f2" : "#1f1f1f",
       }}
     >

@@ -42,12 +42,12 @@ export default function TimeBar(props) {
   return (
     <Box
       sx={{
-        width: width + "%",
+        width: 100 > width ? width + "%" : "100%",
         height: "6vh",
         alignItems: "center",
-        // justifyContent: "center",
         backgroundColor: !darkMode ? "#f2f2f2" : "#1f1f1f",
         transitionDuration: "0.2s",
+        zIndex: "3",
         ...props.sx,
       }}
       ref={timeBarRef}
