@@ -29,7 +29,7 @@ export default function WebProTest(props) {
       >
         <Typography2
           mode={true}
-          name={`Test ${props.qNum}. Find link to "contact number"`}
+          name={`Test ${props.qNum}. Check your web proficiency`}
         />
         <Box
           sx={{
