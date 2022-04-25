@@ -29,7 +29,7 @@ const q8 = {
 const q9 = {
   name: "q6",
   text1: `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga. `,
-  text2: `Sometimes we come across some forgetful persons in our surroundings. And some geniuses are also forgetful to some extent. We know that Newton boiled his pocket watch instead of an egg. Once Einstein was traveling without a ticket in a train. When the checker demanded the ticket, he was frantically searching for the missing ticket. `,
+  text2: `Upon my entrance, Usher arose from a sofa on which he had been lying at full length, and greeted me with a vivacious warmth which had much in it, I at first thought, of an overdone cordiality — of the constrained effort of the ennuyé man of the world. A glance, however, at his countenance, convinced me of his perfect sincerity. We sat down; and for some moments, while he spoke not, I gazed upon him with a feeling half of pity, half of awe. `,
 };
 
 const questions = [q7, q8, q9];
@@ -97,18 +97,58 @@ export default function ReadingTest(props) {
             // border: "1px solid #f2f2f2",
           }}
         >
-          <TextBox
-            handleClick={handleClickTest1}
-            text={questions[props.qNum].text1}
-            darkMode={false}
-            show={testing1}
-          />
-          <TextBox
-            handleClick={handleClickTest2}
-            text={questions[props.qNum].text2}
-            darkMode={true}
-            show={testing2}
-          />
+          {props.qNum === 0 ? (
+            <>
+              <TextBox
+                handleClick={handleClickTest1}
+                text={questions[props.qNum].text1}
+                darkMode={false}
+                show={testing1}
+              />
+              <TextBox
+                handleClick={handleClickTest2}
+                text={questions[props.qNum].text2}
+                darkMode={true}
+                show={testing2}
+              />
+            </>
+          ) : null}
+          {props.qNum === 1 ? (
+            <>
+              <TextBox
+                handleClick={handleClickTest1}
+                text={questions[props.qNum].text1}
+                darkMode={false}
+                show={testing1}
+                sxt={{ letterSpacing: "0.1rem", linehiehgt: "1.5rem" }}
+              />
+              <TextBox
+                handleClick={handleClickTest2}
+                text={questions[props.qNum].text2}
+                darkMode={false}
+                show={testing2}
+              />
+            </>
+          ) : null}
+          {props.qNum === 2 ? (
+            <>
+              <TextBox
+                handleClick={handleClickTest1}
+                text={questions[props.qNum].text1}
+                darkMode={false}
+                show={testing1}
+                sxt={{
+                  fontWeight: "300",
+                }}
+              />
+              <TextBox
+                handleClick={handleClickTest2}
+                text={questions[props.qNum].text2}
+                darkMode={false}
+                show={testing2}
+              />
+            </>
+          ) : null}
         </Box>
       </Box>
     </Box>

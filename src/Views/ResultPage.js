@@ -4,12 +4,16 @@ import { proficiencies } from "../Components/Test/TestStyles2";
 import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
 import { configureFilter } from "../Components/Algorithm";
+import Session from "react-session-api";
+import { useCookies } from "react-cookie";
+import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 const tests = ["red-weak", "green-red-weak", "blue-yellow"];
 
 const Item = (props) => {
   let temp = props.val0 === true ? 0 : 1;
-  let width = 80 - (props.val1 / 3) * 8 - 40 * temp;
+  let width = 80 - (props.val1 / 3) * 8 - 20 * temp;
   return (
     <Box>
       <b>{props.index < 6 ? `Color test ${props.index + 1}: ` : null}</b>
@@ -41,19 +45,24 @@ const Item = (props) => {
 };
 
 export default function ResultPage(props) {
+  const [cookies, setCookie, removeCookie] = useCookies([""]);
   const [submit, setSubmit] = useState(false);
+
   useEffect(() => {
     handleSubmit(configureFilter(props.test));
   }, [props.test]);
 
   const handleSubmit = async (data) => {
-    if (!submit) {
+    Session.set("test", data[2]);
+    if (submit === false) {
       try {
         await addDoc(collection(db, "Filter"), {
           data: {
+            date: Timestamp.now(),
             filterData: data[0],
             profTestData: data[1],
-            date: Timestamp.now(),
+            cookieId: data[2],
+            sessionId: data[2],
           },
         });
         setSubmit(true);
@@ -121,6 +130,16 @@ export default function ResultPage(props) {
             - {proficiencies[idx]}
           </Typography>
         ))}
+        <Link to="/files/extension.txt" target="_blank" download>
+          <Typography
+            variant="h4"
+            sx={{
+              mt: "5vh",
+            }}
+          >
+            Download chrome extension
+          </Typography>
+        </Link>
       </Box>
     </Box>
   );

@@ -11,20 +11,20 @@ export default function TextBox(props) {
     <>
       <Box
         sx={{
-          width: "70vw",
+          width: "80vw",
           minHeight: "21vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: !props.darkMode ? "#f2f2f2" : "#1f1f1f",
           border: !props.darkMode ? "solid red 1px" : "solid yellow 1px",
+          ml: "7vw",
           ...props.sx,
-          margin: "4vh",
         }}
       >
         {props.show ? (
           <Typography
-            sx={{ px: "4vw", mx: "1rem" }}
+            sx={{ px: "4vw", mx: "1rem", ...props.sxt }}
             variant="h6"
             color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
           >
@@ -39,7 +39,9 @@ export default function TextBox(props) {
         sx={{
           color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
           width: "33vw",
-          ml: "40vw",
+          ml: "55vw",
+          mb: "3vh",
+          ...props.sxb,
         }}
         name="Finished reading"
         onClick={() => {

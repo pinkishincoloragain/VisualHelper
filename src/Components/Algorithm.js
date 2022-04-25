@@ -71,8 +71,8 @@ const configureFilter = (data) => {
     filterData[4] = 1;
   }
 
-  //   prefer margin, padding preset 1
-  if (readingTestData[4][1] > readingTestData[5][1]) {
+  //   prefer lighter fontweight
+  if (readingTestData[4][1] < readingTestData[5][1]) {
     filterData[5] = 1;
   }
 
@@ -80,7 +80,12 @@ const configureFilter = (data) => {
   console.log(readingTestData);
   console.log(profTestData);
 
-  return [filterData, profTestData[0]];
+  return [
+    filterData,
+    profTestData[0],
+    filterData.toString().replaceAll(",", "") +
+      profTestData[0].toString().replaceAll(",", ""),
+  ];
 };
 
 export { configureFilter };

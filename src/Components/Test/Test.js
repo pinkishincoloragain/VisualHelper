@@ -66,7 +66,7 @@ export default function Test() {
   const handleTime = () => {
     // console.log(time);
     if (time >= 264.7 || time2 >= 264.7) {
-      setStep(step + 1);
+      // setStep(step + 1);
       setTime(0);
       setTime2(0);
     } else {
