@@ -47,8 +47,7 @@ export default function Test() {
   };
 
   const handleStepBy2 = (answer) => {
-    setTest([...test, [answer, time2 - time]]);
-    setTest([...test, [answer, time2 - time]]);
+    setTest([...test, [answer, time], [answer, time2 - time]]);
     setStep(step + 1);
     setTime(0);
     setTime2(0);

@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Typography, Box } from "@mui/material";
 import Button2 from "../Button2";
 import TimeBar from "./TimeBar";
 
 export default function TextBox(props) {
-  const [show, setShow] = useState(false);
-
+  useEffect(() => {
+    // console.log(props.show);
+  });
   return (
     <>
       <Box
         sx={{
           width: "70vw",
+          minHeight: "21vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -25,19 +27,18 @@ export default function TextBox(props) {
           variant="h6"
           color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
         >
-          {props.text}
+          {props.show ? props.text : null}
         </Typography>
       </Box>
 
       <Button2
         sx={{
           color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
-          width: "20vw",
-          ml: "53vw",
+          width: "25vw",
+          ml: "48vw",
         }}
-        name="Finish test"
+        name="Finished reading"
         onClick={() => {
-          setShow(false);
           props.handleClick();
         }}
       ></Button2>

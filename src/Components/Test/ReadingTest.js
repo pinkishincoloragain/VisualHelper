@@ -53,11 +53,6 @@ export default function ReadingTest(props) {
   }, [testing1, testing2]);
 
   const handleClickTest1 = () => {
-    console.log(
-      "readingtest- 9handleClickTest1 - timeInterval1",
-      testing1 === false ? 1 : 0
-    );
-    // props.setTimeInterval1(1);
     setTesting1(!testing1);
     if (testing2 === false) {
       props.handleStepBy2(true);
@@ -66,11 +61,9 @@ export default function ReadingTest(props) {
     }
   };
   const handleClickTest2 = () => {
-    console.log("testing2", true);
-
     setTesting2(!testing2);
     if (testing1 === false) {
-      props.handleStepBy2(testing1);
+      props.handleStepBy2(true);
       setTesting1(true);
       setTesting2(true);
     }
@@ -85,7 +78,7 @@ export default function ReadingTest(props) {
         }}
         variant="h4"
       >
-        Read the following text and click the button.
+        Read the following text and click the button below each boxes.
       </Typography>
       <Box
         sx={{
@@ -112,11 +105,13 @@ export default function ReadingTest(props) {
             handleClick={handleClickTest1}
             text={questions[props.qNum].text1}
             darkMode={false}
+            show={testing1}
           />
           <TextBox
             handleClick={handleClickTest2}
             text={questions[props.qNum].text2}
             darkMode={true}
+            show={testing2}
           />
         </Box>
       </Box>
