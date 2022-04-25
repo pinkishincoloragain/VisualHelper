@@ -34,12 +34,12 @@ const colors = [
 ];
 
 const proficiencies = [
-  "Only using the mouse",
-  "only using keyboard",
-  "Screenreader",
-  "high contrast",
-  "Key press",
-  "navigate using keyboard",
+  "I use mouse",
+  "I use keyboard",
+  "I use Screenreader",
+  "I prefer dark mode",
+  "I prefer high contrast mode",
+  "I prefer a larger font",
 ];
 
 const Item = (props) => {
@@ -47,15 +47,15 @@ const Item = (props) => {
   return (
     <ToggleButton
       value="check"
-      selected={selected}
+      selected={!selected}
       onChange={() => {
-        props.onClick();
+        props.handleClick(props.idx, !selected);
         setSelected(!selected);
       }}
       sx={{
         width: "100%",
         height: "100%",
-        backgroundColor: selected ? colors[2] : "white",
+        backgroundColor: "white",
         "&:selected": {
           backgroundColor: colors[2],
         },
@@ -68,9 +68,9 @@ const Item = (props) => {
       }}
     >
       <Typography
-        variant="h5"
+        variant="h6"
         sx={{
-          color: selected ? "white" : "black",
+          color: !selected ? "white" : "black",
           "&:hover": {
             color: "inherit",
           },
@@ -83,48 +83,35 @@ const Item = (props) => {
 };
 
 export function ResponsiveGrid(props) {
-  const [success, setSuccess] = useState({});
-  useEffect(() => {});
+  const [selections, setSelections] = useState({ idx: "", selected: false });
 
   const handleClick = (idx) => {
     console.log(idx);
-    setSuccess({ ...success, idx });
+    console.log(selections);
+    setSelections({ ...selections, idx: idx });
   };
 
   useEffect(() => {
-    console.log("success", success);
-  }, [success]);
+    console.log("selections", selections);
+  }, [selections]);
 
   return (
     <>
-      <Box
-        sx={{
-          ml: "10vw ",
-          height: "10vh",
-        }}
-      ></Box>
-      <Box sx={{ ml: "10vw", width: "80vw", flexGrow: 1 }}>
+      <Box sx={{ mt: "15vh", ml: "10vw", width: "80vw", flexGrow: 1 }}>
         <Grid
           container
           spacing={{ xs: 2, md: 3 }}
           columns={{ xs: 4, sm: 8, md: 12 }}
         >
-          {Array.from(Array(6)).map((_, idx) => (
+          {proficiencies.map((_, idx) => (
             <Grid item xs={2} sm={4} md={4} key={idx}>
-              <Item index={idx} onClick={() => handleClick(idx)}>
-                {idx + 1}.{proficiencies[idx]}
+              <Item index={idx} handleClick={handleClick}>
+                {proficiencies[idx]}
               </Item>
             </Grid>
           ))}
         </Grid>
       </Box>
-      <Box
-        sx={{
-          ml: "10vw",
-          mt: "10vh",
-          height: "10vh",
-        }}
-      ></Box>
     </>
   );
 }

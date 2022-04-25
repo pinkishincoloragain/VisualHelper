@@ -122,7 +122,7 @@ export default function Test() {
             }}
           >
             {0 <= step && step < 6 ? (
-              <ColorTest qNum={step} handleStep={handleStep} />
+              <WebProTest qNum={step} handleStep={handleStep} />
             ) : //
             null}
             {step === 6 ? (
@@ -140,7 +140,9 @@ export default function Test() {
                 handleStepBy2={handleStepBy2}
               />
             ) : null}
-            {step === 14 ? <WebProTest /> : null}
+            {step === 14 ? (
+              <WebProTest handleStep={handleStep} setTest={setTest} />
+            ) : null}
             {/* {13 < step && step <= 17 ? (
               <ColorTest qNum={step - 13} handleStep={handleStep} />
             ) : null}
