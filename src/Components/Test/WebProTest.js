@@ -29,7 +29,6 @@ export default function WebProTest(props) {
         }}
       >
         <Typography2
-          mode={true}
           name={`Select multiple options which describes you the most.`}
         />
         <Box
