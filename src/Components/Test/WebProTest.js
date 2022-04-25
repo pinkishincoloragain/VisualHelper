@@ -3,8 +3,10 @@ import { useState, useEffect } from "react";
 import Button2 from "../Button2";
 import { Typography2 } from "../Styles";
 import { ResponsiveGrid } from "./TestStyles2";
+import { useSelector } from "react-redux";
 
 export default function WebProTest(props) {
+  const darkMode = useSelector((state) => state.mode.value);
   const [test, setTest] = useState(false);
 
   const handleStartClick = () => {
@@ -29,6 +31,7 @@ export default function WebProTest(props) {
         }}
       >
         <Typography2
+          mode={darkMode}
           name={`Select multiple options which describes you the most.`}
         />
         <Box

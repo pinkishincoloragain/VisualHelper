@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { useState, useEffect } from "react";
 import { proficiencies } from "../Components/Test/TestStyles2";
-import { db } from "./firebase";
+import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { configureFilter } from "../Components/Algorithm";
 
 const tests = ["red-weak", "green-red-weak", "blue-yellow"];
 
@@ -40,16 +41,21 @@ const Item = (props) => {
 };
 
 export default function ResultPage(props) {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    configureFilter(props.test);
+  });
+  useEffect(() => {
+    handleSubmit(JSON.stringify(props.test));
+  }, [props.test]);
+  const handleSubmit = async (data) => {
     try {
-      await addDoc(collection(db, "tasks"), {
-        title: title,
-        description: description,
-        completed: false,
+      await addDoc(collection(db, "Filter"), {
+        data: {
+          data: data,
+          date: Timestamp.now(),
+        },
         created: Timestamp.now(),
       });
-      onClose();
     } catch (err) {
       alert(err);
     }

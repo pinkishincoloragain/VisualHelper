@@ -52,7 +52,7 @@ export default function ReadingTest(props) {
   const handleClickTest1 = () => {
     setTesting1(!testing1);
     if (testing2 === false) {
-      props.handleStepBy2(questions);
+      props.handleStepBy2(true);
       setTesting1(true);
       setTesting2(true);
     }

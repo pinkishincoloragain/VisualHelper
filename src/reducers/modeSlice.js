@@ -7,7 +7,7 @@ const setDarkMode = () => {
   } else if (localTheme === "false") {
     return false;
   } else {
-    window.localStorage.setItem("theme", "false");
+    window.localStorage.setItem("theme", "true");
     return true;
   }
 };

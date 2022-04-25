@@ -9,11 +9,17 @@ export default function Notice(props) {
   const [test, setTest] = useState(false);
   const darkMode = useSelector((state) => state.mode.value);
 
+  useEffect(() => {
+    props.setTimeInterval1(0);
+    props.setTimeInterval2(0);
+  });
   const handleTest = () => {
     document.body.requestFullscreen();
     console.log("fish");
     setTest(!test);
     console.log("test start");
+    props.setTimeInterval1(1);
+    props.setTimeInterval2(1);
     props.handleStep(null);
   };
   const [checked, setChecked] = useState(false);

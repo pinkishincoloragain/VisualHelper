@@ -40,11 +40,11 @@ export default function Test() {
   }, [test]);
 
   useEffect(() => {
-    if (step === 11) {
+    if (step === 11 || step === -1) {
       setTimeInterval1(0);
       setTimeInterval2(0);
     }
-  });
+  }, [step]);
 
   const handleStep = (answer) => {
     if (answer !== null) {
@@ -78,7 +78,11 @@ export default function Test() {
   return (
     <>
       {step === -1 ? (
-        <Notice handleStep={handleStep} />
+        <Notice
+          handleStep={handleStep}
+          setTimeInterval1={setTimeInterval1}
+          setTimeInterval2={setTimeInterval2}
+        />
       ) : (
         <>
           <Paper
