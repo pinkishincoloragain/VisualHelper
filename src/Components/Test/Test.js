@@ -108,7 +108,6 @@ export default function Test() {
                 />
               </>
             ) : null}
-            {/* <TimeBar step={step} /> */}
           </Paper>
 
           <Box

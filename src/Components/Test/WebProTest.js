@@ -20,38 +20,36 @@ export default function WebProTest(props) {
   // const tests = [];
 
   return (
-    <>
-      <Box>
+    <Box sx={{ height: "100vh" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          ml: "10vw",
+        }}
+      >
+        <Typography2
+          mode={true}
+          name={`Select multiple options which describes you the most.`}
+        />
         <Box
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            ml: "10vw",
+            width: "80vw",
+            height: "2px",
+            my: "4vh",
+            backgroundColor: "white",
           }}
-        >
-          <Typography2
-            mode={true}
-            name={`Select multiple options which describes you the most.`}
-          />
-          <Box
-            sx={{
-              width: "80vw",
-              height: "2px",
-              my: "4vh",
-              backgroundColor: "white",
-            }}
-          />
+        />
 
-          {test ? null : (
-            <Button2
-              onClick={handleStartClick}
-              sx={{ width: "20vw" }}
-              name="start test"
-            />
-          )}
-        </Box>
-        {test ? tests : null}
+        {test ? null : (
+          <Button2
+            onClick={handleStartClick}
+            sx={{ width: "20vw" }}
+            name="start test"
+          />
+        )}
       </Box>
-    </>
+      {test ? tests : null}
+    </Box>
   );
 }

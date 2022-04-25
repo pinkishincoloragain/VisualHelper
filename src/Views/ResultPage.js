@@ -18,7 +18,7 @@ const Item = (props) => {
           my: "1vh",
           display: "flex",
           flexDirection: "row",
-          backgroundColor: "red",
+          backgroundColor: props.val0 ? "#3cb043" : "#ff0000",
           borderRadius: "10px",
           mb: "20px",
         }}
@@ -40,14 +40,14 @@ export default function ResultPage(props) {
         height: "100vh",
       }}
     >
-      <Typography variant="h2" sx={{ ml: "5vw", mb: "5vh" }}>
+      <Typography variant="h2" sx={{ ml: "5vw", mt: "5vh", mb: "5vh" }}>
         Test result
       </Typography>
       <Box
         sx={{
           width: "80vw",
           ml: "5vw",
-          height: "80vh",
+          height: "60vh",
           display: "flex",
           flexDirection: "column",
         }}
