@@ -10,11 +10,11 @@ export default function Notice(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleTest = () => {
-    // document.body.requestFullscreen();
+    document.body.requestFullscreen();
     console.log("fish");
     setTest(!test);
     console.log("test start");
-    props.handleStep();
+    props.handleStep(null);
   };
   const [checked, setChecked] = useState(false);
   const handleChecked = () => {
@@ -24,7 +24,7 @@ export default function Notice(props) {
   const brightness = !darkMode ? "brightness" : "brightness";
 
   return (
-    <Box sx={{ height: "98vh" }}>
+    <Box sx={{ height: "100vh" }}>
       <Box
         sx={{
           ml: "10vw",

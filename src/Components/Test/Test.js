@@ -36,10 +36,20 @@ export default function Test() {
 
   useEffect(() => {
     console.log(test);
+    console.log(step);
   }, [test]);
 
+  useEffect(() => {
+    if (step === 11) {
+      setTimeInterval1(0);
+      setTimeInterval2(0);
+    }
+  });
+
   const handleStep = (answer) => {
-    setTest([...test, [answer, time]]);
+    if (answer !== null) {
+      setTest([...test, [answer, time]]);
+    }
     setStep(step + 1);
     setTime(0);
     setTime2(0);
@@ -55,24 +65,14 @@ export default function Test() {
 
   const handleTime = () => {
     // console.log(time);
-    if (time >= 3000 || time2 >= 3000) {
+    if (time >= 264.7 || time2 >= 264.7) {
       setStep(step + 1);
       setTime(0);
       setTime2(0);
+    } else {
+      setTime(time + timeInterval1);
+      setTime2(time2 + timeInterval2);
     }
-
-    // console.log("timeInterval1", timeInterval1);
-    // console.log("time", time);
-    // console.log("timeInterval2", timeInterval2);
-    // console.log("time2", time2);
-
-    setTime(time + timeInterval1);
-    setTime2(time2 + timeInterval2);
-  };
-
-  const handleTimeInterval1 = (t) => {
-    // console.log("timeInterval1", t);
-    setTimeInterval1(t);
   };
 
   return (
@@ -97,7 +97,7 @@ export default function Test() {
             {step < 6 ? (
               <TimeBar interval={timeInterval1} time={time} step={step} />
             ) : null}
-            {6 < step && step <= 12 ? (
+            {6 < step && step <= 9 ? (
               <>
                 <TimeBar time={time} step={step} interval={timeInterval1} />
                 <TimeBar
@@ -118,35 +118,32 @@ export default function Test() {
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
               display: "flex",
               flexDirection: "column",
-              height: "100%",
+              // height: "100%",
             }}
           >
             {0 <= step && step < 6 ? (
-              <WebProTest qNum={step} handleStep={handleStep} />
+              <ColorTest qNum={step} handleStep={handleStep} />
             ) : //
             null}
             {step === 6 ? (
               <PreTest
-                setTimeInterval1={handleTimeInterval1}
+                setTimeInterval1={setTimeInterval1}
                 setTimeInterval2={setTimeInterval2}
                 handleStep={handleStep}
               />
             ) : null}
-            {6 < step && step <= 12 ? (
+            {6 < step && step <= 9 ? (
               <ReadingTest
-                setTimeInterval1={handleTimeInterval1}
+                setTimeInterval1={setTimeInterval1}
                 setTimeInterval2={setTimeInterval2}
                 qNum={step - 7}
                 handleStepBy2={handleStepBy2}
               />
             ) : null}
-            {step === 14 ? (
+            {step === 10 ? (
               <WebProTest handleStep={handleStep} setTest={setTest} />
             ) : null}
-            {/* {13 < step && step <= 17 ? (
-              <ColorTest qNum={step - 13} handleStep={handleStep} />
-            ) : null}
-            {step === 18 ? <ResultPage /> : null} */}
+            {step === 11 ? <ResultPage test={test} /> : null}
           </Box>
         </>
       )}

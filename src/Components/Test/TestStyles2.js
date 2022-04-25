@@ -7,33 +7,11 @@ import Grid from "@mui/material/Grid";
 import { Button, ToggleButton, Typography } from "@mui/material";
 import Alert from "@mui/material/Alert";
 import Collapse from "@mui/material/Collapse";
+import Button2 from "../Button2";
 
-const colors = [
-  "#e6194b",
-  "#3cb44b",
-  "#ffe119",
-  "#4363d8",
-  "#f58231",
-  "#911eb4",
-  "#46f0f0",
-  "#f032e6",
-  "#bcf60c",
-  "#fabebe",
-  "#008080",
-  "#e6beff",
-  "#9a6324",
-  "#fffac8",
-  "#800000",
-  "#aaffc3",
-  "#808000",
-  "#ffd8b1",
-  "#000075",
-  "#808080",
-  "#ffffff",
-  "#000000",
-];
+const colors = ["#e6194b", "#3cb44b", "#ffe119"];
 
-const proficiencies = [
+export const proficiencies = [
   "I use mouse",
   "I use keyboard",
   "I use Screenreader",
@@ -49,7 +27,7 @@ const Item = (props) => {
       value="check"
       selected={!selected}
       onChange={() => {
-        props.handleClick(props.idx, !selected);
+        props.handleClick(props.index);
         setSelected(!selected);
       }}
       sx={{
@@ -83,16 +61,23 @@ const Item = (props) => {
 };
 
 export function ResponsiveGrid(props) {
-  const [selections, setSelections] = useState({ idx: "", selected: false });
+  const [selections, setSelections] = useState([]);
+  const handleSubmit = () => {
+    props.handleSubmit(selections);
+  };
 
   const handleClick = (idx) => {
     console.log(idx);
     console.log(selections);
-    setSelections({ ...selections, idx: idx });
+    if (!selections.includes(idx)) {
+      setSelections([...selections, idx]);
+    } else {
+      setSelections(selections.filter((i) => i !== idx));
+    }
   };
 
   useEffect(() => {
-    console.log("selections", selections);
+    // console.log("selections", selections);
   }, [selections]);
 
   return (
@@ -112,6 +97,13 @@ export function ResponsiveGrid(props) {
           ))}
         </Grid>
       </Box>
+      {props.test ? (
+        <Button2
+          onClick={handleSubmit}
+          sx={{ mt: "15vh", ml: "60vw", width: "30vw" }}
+          name="move to the result"
+        />
+      ) : null}
     </>
   );
 }

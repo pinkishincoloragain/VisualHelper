@@ -16,7 +16,7 @@ export default function PreTest(props) {
     <Box
       sx={{
         width: "100%",
-        height: "100%",
+        height: "100vh",
         ml: "10vw",
         color: darkMode ? "#f2f2f2" : "#1f1f1f",
       }}
@@ -31,10 +31,12 @@ export default function PreTest(props) {
         <br /> Timer will begin as soon as you click on the button.
         <br />
         <br />
-        <br />
       </Typography>
       <Box sx={{ width: "25vw" }}>
-        <Button2 name={"start test"} onClick={props.handleStep}></Button2>
+        <Button2
+          name={"start test"}
+          onClick={() => props.handleStep(null)}
+        ></Button2>
       </Box>
     </Box>
   );

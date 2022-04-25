@@ -26,7 +26,7 @@ export default function TimeBar(props) {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    setWidth((props.time / 300) * 100);
+    setWidth(((props.time / 3) * 35) / 30);
   });
   // const [start, setStart] = useState(true);
 

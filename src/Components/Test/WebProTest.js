@@ -10,17 +10,12 @@ export default function WebProTest(props) {
   const handleStartClick = () => {
     setTest(true);
   };
-  const handleAnsClick = () => {
-    setTest(false);
+
+  const handleSubmit = (res) => {
+    props.handleStep(res);
   };
 
-  const handleSubmit = () => {
-    props.handleStep();
-  };
-
-  const tests = (
-    <ResponsiveGrid setTest={props.setTest} handleAnsClick={handleAnsClick} />
-  );
+  const tests = <ResponsiveGrid test={test} handleSubmit={handleSubmit} />;
 
   // const tests = [];
 
@@ -56,13 +51,6 @@ export default function WebProTest(props) {
           )}
         </Box>
         {test ? tests : null}
-        {test ? (
-          <Button2
-            onClick={handleSubmit}
-            sx={{ mt: "15vh", ml: "60vw", width: "30vw" }}
-            name="move to the result"
-          />
-        ) : null}
       </Box>
     </>
   );

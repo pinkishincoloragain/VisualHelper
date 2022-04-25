@@ -17,7 +17,7 @@ const q1 = {
     { name: "65" },
     { name: "I don't know" },
   ],
-  ans: 1,
+  ans: 15,
   image: Plate6,
 };
 const q2 = {
@@ -28,7 +28,7 @@ const q2 = {
     { name: "72" },
     { name: "I don't know" },
   ],
-  ans: 0,
+  ans: 74,
   image: Plate7,
 };
 const q3 = {
@@ -39,7 +39,7 @@ const q3 = {
     { name: "5" },
     { name: "I don't know" },
   ],
-  ans: 1,
+  ans: 6,
   image: Plate8,
 };
 const q4 = {
@@ -50,7 +50,7 @@ const q4 = {
     { name: "29" },
     { name: "I don't know" },
   ],
-  ans: 2,
+  ans: 29,
   image: Plate3,
 };
 const q5 = {
@@ -61,7 +61,7 @@ const q5 = {
     { name: "15" },
     { name: "I don't know" },
   ],
-  ans: 1,
+  ans: 5,
   image: Plate4,
 };
 const q6 = {
@@ -72,7 +72,7 @@ const q6 = {
     { name: "3" },
     { name: "I don't know" },
   ],
-  ans: 2,
+  ans: 3,
   image: Plate5,
 };
 
@@ -82,11 +82,13 @@ const ColorTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleAnsClick = (name) => {
-    props.handleStep(questions[props.qNum].ans === name);
+    console.log(questions[props.qNum].ans.toString());
+    console.log(name);
+    props.handleStep(questions[props.qNum].ans.toString() === name);
   };
 
   return (
-    <Box sx={{ ml: "10vw" }}>
+    <Box sx={{ ml: "10vw", height: "87vh" }}>
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",

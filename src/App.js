@@ -7,16 +7,16 @@ import TestPage from "./Views/TestPage";
 import AboutPage from "./Views/AboutPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 import "./App.scss";
 
 // For animation
 function App() {
-  useEffect(() => {
-    Aos.init();
-    Aos.refresh();
-  }, []);
+  // useEffect(() => {
+  //   Aos.init();
+  //   Aos.refresh();
+  // }, []);
 
   const darkMode = useSelector((state) => state.mode.value);
 

@@ -29,11 +29,8 @@ const q8 = {
 };
 const q9 = {
   name: "q6",
-  text: `The legs are the long, muscular body parts that allow humans to move from one spot to another and
-  perform a variety of actions. Each leg contains a thigh (a thick, especially muscular body part used to
-  perform strenuous motions; the upper part of the leg) and a calf (thinner, more flexible body part that
-  absorbs the shock associated with movement; the lower part of the leg). Feet can be found at the
-  bottom of legs, and each foot is comprised of five toes, or small appendages that help balance.`,
+  text1: `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga. Our class teacher warned that only those who knew swimming would be allowed to bathe in the river. Rajesh, our youngest classmate, did not know how to swim. But he came unnoticed and tried to imitate us in the river. `,
+  text2: `Sometimes we come across some forgetful persons in our surroundings. And some geniuses are also forgetful to some extent. We know that Newton boiled his pocket watch instead of an egg. Once Einstein was traveling without a ticket in a train. When the checker demanded the ticket, he was frantically searching for the missing ticket. However, when the checker could recognize him, he assured that the scientist would not have to search for it. Einstein still went on searching and remarked that he was searching to find out where he was going for he totally forgot about his destination.`,
 };
 
 const questions = [q7, q8, q9];
@@ -55,7 +52,7 @@ export default function ReadingTest(props) {
   const handleClickTest1 = () => {
     setTesting1(!testing1);
     if (testing2 === false) {
-      props.handleStepBy2(true);
+      props.handleStepBy2(questions);
       setTesting1(true);
       setTesting2(true);
     }
@@ -70,7 +67,7 @@ export default function ReadingTest(props) {
   };
 
   return (
-    <Box sx={{ ml: "10vw", height: "100%" }}>
+    <Box sx={{ ml: "10vw", height: "120vh" }}>
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",

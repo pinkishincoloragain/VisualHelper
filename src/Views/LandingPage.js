@@ -26,7 +26,7 @@ export default function LandingPage() {
           alignItems: "center",
           margin: "auto",
           width: "90vw",
-          height: "90vh",
+          height: "100vh",
           backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
         }}
       >
