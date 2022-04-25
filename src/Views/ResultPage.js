@@ -3,26 +3,36 @@ import { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import { proficiencies } from "../Components/Test/TestStyles2";
 
+const tests = ["red-green", "red-green"];
+
 const Item = (props) => {
   let temp = props.val0 === true ? 0 : 1;
   let width = 80 - (props.val1 / 3) * 8 - 40 * temp;
   return (
     <Box>
-      {props.val0 === true ? "correct" : "wrong"}: {props.val1.toFixed(2)} sec
+      {/* {props.val0 === true ? "correct" : "wrong"} */}
+      {props.val1.toFixed(2)} sec
       <Box
-        key={props.idx}
         sx={{
-          width: `${width * 0.8}%`,
-          minWidth: "0%",
-          height: "10px",
-          my: "1vh",
           display: "flex",
           flexDirection: "row",
-          backgroundColor: props.val0 ? "#3cb043" : "#ff0000",
-          borderRadius: "10px",
-          mb: "20px",
         }}
-      ></Box>
+      >
+        <Box
+          key={props.idx}
+          sx={{
+            width: `${width * 0.6}%`,
+            minWidth: "0%",
+            height: "8px",
+            my: "1vh",
+            display: "flex",
+            flexDirection: "row",
+            backgroundColor: props.val0 ? "#3cb043" : "#ff0000",
+            borderRadius: "10px",
+            mb: "20px",
+          }}
+        />
+      </Box>
     </Box>
   );
 };
@@ -37,12 +47,9 @@ export default function ResultPage(props) {
         ml: "10vw",
         backgroundColor: "#f2f2f2",
         width: "80vw",
-        height: "100vh",
+        height: "200vh",
       }}
     >
-      <Typography variant="h2" sx={{ ml: "5vw", mt: "5vh", mb: "5vh" }}>
-        Test result
-      </Typography>
       <Box
         sx={{
           width: "80vw",
@@ -50,8 +57,12 @@ export default function ResultPage(props) {
           height: "60vh",
           display: "flex",
           flexDirection: "column",
+          flex: "1",
         }}
       >
+        <Typography variant="h2" sx={{ mt: "5vh", mb: "5vh" }}>
+          Test result
+        </Typography>
         {props.test.slice(0, 12).map((_, idx) => (
           <Item
             index={idx}
@@ -72,6 +83,7 @@ export default function ResultPage(props) {
           ))}
         </Box>
       </Box>
+      <Box></Box>
     </Box>
   );
 }

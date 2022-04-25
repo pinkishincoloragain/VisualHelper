@@ -7,6 +7,8 @@ import Plate5 from "../../assets/test/Plate5.gif";
 import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
+import PlateB from "../../assets/test/PlateB.png";
+import PlateC from "../../assets/test/PlateC.png";
 import { useSelector } from "react-redux";
 
 const q1 = {
@@ -56,24 +58,24 @@ const q4 = {
 const q5 = {
   name: "q5",
   options: [
-    { name: "7" },
-    { name: "5" },
-    { name: "15" },
+    { name: "2" },
+    { name: "3" },
+    { name: "4" },
     { name: "I don't know" },
   ],
-  ans: 5,
-  image: Plate4,
+  ans: 2,
+  image: PlateB,
 };
 const q6 = {
   name: "q6",
   options: [
-    { name: "5" },
-    { name: "6" },
-    { name: "3" },
+    { name: "2" },
+    { name: "7" },
+    { name: "9" },
     { name: "I don't know" },
   ],
-  ans: 3,
-  image: Plate5,
+  ans: 9,
+  image: PlateC,
 };
 
 const questions = [q1, q2, q3, q4, q5, q6];
