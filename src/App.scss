@@ -4,8 +4,8 @@
 }
 
 * {
-  transition-duration: 2s;
-  animation-duration: 2s;
+  transition-duration: 0.1s;
+  animation-duration: 0.1s;
 }
 
 .CatchPhrase {
@@ -13,11 +13,7 @@
   font-weight: bold;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Mui-selected {
+  background-color: #f5f5f5;
+  color: "red";
 }

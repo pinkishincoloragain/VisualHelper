@@ -24,8 +24,8 @@ const q7 = {
 };
 const q8 = {
   name: "q5",
-  text1: "fish",
-  text2: "fish2",
+  text1: `Noticing these things, I rode over a short causeway to the house. A servant in waiting took my horse, and I entered the Gothic archway of the hall. A valet, of stealthy step, thence conducted me, in silence, through many dark and intricate passages in my progress to the studio of his master. Much that I encountered on the way contributed, I know not how, to heighten the vague sentiments of which I have already spoken.`,
+  text2: `The room in which I found myself was very large and lofty. The windows were long, narrow, and pointed, and at so vast a distance from the black oaken floor as to be altogether inaccessible from within. Feeble gleams of encrimsoned light made their way through the trellissed panes, and served to render sufficiently distinct the more prominent objects around; the eye, however, struggled in vain to reach the remoter angles of the chamber`,
 };
 const q9 = {
   name: "q6",
@@ -44,31 +44,43 @@ const configuration = [];
 export default function ReadingTest(props) {
   const darkMode = useSelector((state) => state.mode.value);
 
-  const [testing1, setTesting1] = useState(false);
-  const [testing2, setTesting2] = useState(false);
+  const [testing1, setTesting1] = useState(true);
+  const [testing2, setTesting2] = useState(true);
+
+  useEffect(() => {
+    props.setTimeInterval1(testing1 === true ? 1 : 0);
+    props.setTimeInterval2(testing2 === true ? 1 : 0);
+  }, [testing1, testing2]);
 
   const handleClickTest1 = () => {
     console.log(
       "readingtest- 9handleClickTest1 - timeInterval1",
       testing1 === false ? 1 : 0
     );
-    props.setTimeInterval1(testing1 === false ? 1 : 0);
     // props.setTimeInterval1(1);
     setTesting1(!testing1);
+    if (testing2 === false) {
+      props.handleStepBy2(true);
+      setTesting1(true);
+      setTesting2(true);
+    }
   };
   const handleClickTest2 = () => {
-    props.setTimeInterval2(testing2 === false ? 1 : 0);
-    console.log("testing2", testing2);
+    console.log("testing2", true);
 
     setTesting2(!testing2);
+    if (testing1 === false) {
+      props.handleStepBy2(testing1);
+      setTesting1(true);
+      setTesting2(true);
+    }
   };
 
   return (
-    <>
+    <Box sx={{ ml: "10vw", height: "100%" }}>
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",
-          ml: "5vw",
           mb: "2vh",
         }}
         variant="h4"
@@ -77,8 +89,6 @@ export default function ReadingTest(props) {
       </Typography>
       <Box
         sx={{
-          px: "0vh",
-          // height: "50vh",
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
@@ -92,8 +102,9 @@ export default function ReadingTest(props) {
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            mt: "10vh",
-            pb: "10vh",
+            ml: "4vw",
+            // mt: "10vh",
+            // pb: "10vh",
             // border: "1px solid #f2f2f2",
           }}
         >
@@ -109,7 +120,7 @@ export default function ReadingTest(props) {
           />
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }
 

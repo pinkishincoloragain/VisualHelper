@@ -43,7 +43,18 @@ const proficiencies = [
 ];
 
 const DoubleClickTest = (props) => {
-  return <Button onDoubleClick={props.handleSuccess}>Doubleclick me</Button>;
+  return (
+    <Button
+      sx={{
+        width: "40vw",
+        height: "15vh",
+        backgroundColor: "white",
+      }}
+      onDoubleClick={props.handleSuccess}
+    >
+      <Typography variant="h4">Doubleclick me</Typography>
+    </Button>
+  );
 };
 
 const Item = styled(Button)(({ theme }) => ({
@@ -55,7 +66,7 @@ const Item = styled(Button)(({ theme }) => ({
   width: "100%",
   "&:hover": {
     backgroundColor: colors[1],
-    heigth: "120%",
+    // height: "120%",
   },
   color: theme.palette.text.secondary,
 }));
@@ -66,7 +77,7 @@ export function ResponsiveGrid(props) {
   const [success, setSuccess] = useState([]);
   const handleSuccess = () => {
     if (!({ openIdx: openIdx, success: true } in success)) {
-      setSuccess([...success, { openIdx: openIdx }]);
+      setSuccess({ ...success, openIdx });
     }
   };
   const handleClick = (idx) => {
@@ -108,9 +119,7 @@ export function ResponsiveGrid(props) {
                 onClick={() => {
                   setOpen(false);
                 }}
-              >
-                {/* <CloseIcon fontSize="inherit" /> */}
-              </IconButton>
+              ></IconButton>
             }
             sx={{ mb: 2 }}
           >
@@ -146,7 +155,7 @@ export function ResponsiveGrid(props) {
               width: "80vw",
               height: "20vh",
               mb: 2,
-              backgroundColor: "white",
+              //   backgroundColor: "white",
               color: "black",
               display: "flex",
               flexDirection: "row",
@@ -154,9 +163,9 @@ export function ResponsiveGrid(props) {
               alignItems: "center",
             }}
           >
-            {openIdx === 0 ? (
+            {/* {openIdx === 0 ? (
               <DoubleClickTest handleSuccess={handleSuccess} />
-            ) : null}
+            ) : null} */}
           </Box>
         </Collapse>
       </Box>

@@ -12,12 +12,12 @@ import { useSelector } from "react-redux";
 const q1 = {
   name: "q1",
   options: [
+    { name: "18" },
     { name: "15" },
-    { name: "13" },
-    { name: "12" },
+    { name: "65" },
     { name: "I don't know" },
   ],
-  ans: "15",
+  ans: 1,
   image: Plate6,
 };
 const q2 = {
@@ -28,51 +28,51 @@ const q2 = {
     { name: "72" },
     { name: "I don't know" },
   ],
-  ans: "74",
+  ans: 0,
   image: Plate7,
 };
 const q3 = {
   name: "q3",
   options: [
-    { name: "5" },
+    { name: "8" },
     { name: "6" },
-    { name: "3" },
+    { name: "5" },
     { name: "I don't know" },
   ],
-  ans: "6",
+  ans: 1,
   image: Plate8,
 };
 const q4 = {
-  name: "q3",
+  name: "q4",
   options: [
     { name: "26" },
+    { name: "23" },
     { name: "29" },
-    { name: "3" },
     { name: "I don't know" },
   ],
-  ans: "6",
+  ans: 2,
   image: Plate3,
 };
 const q5 = {
-  name: "q3",
+  name: "q5",
   options: [
     { name: "7" },
     { name: "5" },
     { name: "15" },
     { name: "I don't know" },
   ],
-  ans: "6",
+  ans: 1,
   image: Plate4,
 };
 const q6 = {
-  name: "q3",
+  name: "q6",
   options: [
     { name: "5" },
     { name: "6" },
     { name: "3" },
     { name: "I don't know" },
   ],
-  ans: "6",
+  ans: 2,
   image: Plate5,
 };
 
@@ -82,11 +82,11 @@ const ColorTest = (props) => {
   const darkMode = useSelector((state) => state.mode.value);
 
   const handleAnsClick = (name) => {
-    props.handleStep(name);
+    props.handleStep(questions[props.qNum].ans === name);
   };
 
   return (
-    <>
+    <Box sx={{ ml: "10vw" }}>
       <Typography
         sx={{
           color: !darkMode ? "#1f1f1f" : "#f2f2f2",
@@ -141,7 +141,7 @@ const ColorTest = (props) => {
           })}
         </Box>
       </Box>
-    </>
+    </Box>
   );
 };
 

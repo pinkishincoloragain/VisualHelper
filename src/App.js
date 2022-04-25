@@ -9,6 +9,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import "./App.scss";
 
 // For animation
 function App() {

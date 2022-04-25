@@ -34,11 +34,9 @@ export default function Test() {
     return () => clearInterval(interval);
   }, [time, time2, step]);
 
-  // useEffect(() => {
-  //   if (6 <= step && step <= 12) {
-  //     // setTimeInterval(0);
-  //   }
-  // });
+  useEffect(() => {
+    console.log(test);
+  }, [test]);
 
   const handleStep = (answer) => {
     setTest([...test, [answer, time]]);
@@ -46,6 +44,14 @@ export default function Test() {
     setTime(0);
     setTime2(0);
     // console.log(step);
+  };
+
+  const handleStepBy2 = (answer) => {
+    setTest([...test, [answer, time2 - time]]);
+    setTest([...test, [answer, time2 - time]]);
+    setStep(step + 1);
+    setTime(0);
+    setTime2(0);
   };
 
   const handleTime = () => {
@@ -109,19 +115,16 @@ export default function Test() {
           <Box
             sx={{
               mt: "5vh",
-              // mx: "1vw",
               width: "78vw",
-              // borderRadius: "20px",
               backgroundColor: darkMode ? "#1f1f1f" : "#f2f2f2",
               display: "flex",
               flexDirection: "column",
-              // height: "100%",
+              height: "100%",
             }}
           >
             {0 <= step && step < 6 ? (
-              // <WebProTest handleStep={handleStep} />
-              <WebProTest qNum={step} handleStep={handleStep} />
-            ) : // <ColorTest qNum={step} handleStep={handleStep} />
+              <ColorTest qNum={step} handleStep={handleStep} />
+            ) : //
             null}
             {step === 6 ? (
               <PreTest
@@ -135,14 +138,14 @@ export default function Test() {
                 setTimeInterval1={handleTimeInterval1}
                 setTimeInterval2={setTimeInterval2}
                 qNum={step - 7}
-                handleStep={handleStep}
+                handleStepBy2={handleStepBy2}
               />
             ) : null}
-            {step === 13 ? <PreTest /> : null}
-            {13 < step && step <= 17 ? (
+            {step === 14 ? <WebProTest /> : null}
+            {/* {13 < step && step <= 17 ? (
               <ColorTest qNum={step - 13} handleStep={handleStep} />
             ) : null}
-            {step === 18 ? <ResultPage /> : null}
+            {step === 18 ? <ResultPage /> : null} */}
           </Box>
         </>
       )}

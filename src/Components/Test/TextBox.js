@@ -10,9 +10,7 @@ export default function TextBox(props) {
     <>
       <Box
         sx={{
-          p: "1rem",
           width: "70vw",
-          height: "100%",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -23,7 +21,7 @@ export default function TextBox(props) {
         }}
       >
         <Typography
-          sx={{ px: "4vw" }}
+          sx={{ px: "4vw", margin: "1rem" }}
           variant="h6"
           color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
         >
@@ -34,6 +32,8 @@ export default function TextBox(props) {
       <Button2
         sx={{
           color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
+          width: "20vw",
+          ml: "53vw",
         }}
         name="Finish test"
         onClick={() => {

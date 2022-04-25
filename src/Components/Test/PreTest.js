@@ -9,7 +9,7 @@ export default function PreTest(props) {
   useEffect(() => {
     // props.setTimeInterval1(0);
     // props.setTimeInterval2(0);
-    console.log("pretest- useEffect");
+    // console.log("pretest- useEffect");
   });
 
   return (
