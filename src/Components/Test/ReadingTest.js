@@ -1,7 +1,6 @@
 import { Box } from "@mui/material";
 import { useState, useEffect } from "react";
 import { Typography } from "@mui/material";
-import Button2 from "../Button2";
 import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";
@@ -29,8 +28,8 @@ const q8 = {
 };
 const q9 = {
   name: "q6",
-  text1: `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga. Our class teacher warned that only those who knew swimming would be allowed to bathe in the river. Rajesh, our youngest classmate, did not know how to swim. But he came unnoticed and tried to imitate us in the river. `,
-  text2: `Sometimes we come across some forgetful persons in our surroundings. And some geniuses are also forgetful to some extent. We know that Newton boiled his pocket watch instead of an egg. Once Einstein was traveling without a ticket in a train. When the checker demanded the ticket, he was frantically searching for the missing ticket. However, when the checker could recognize him, he assured that the scientist would not have to search for it. Einstein still went on searching and remarked that he was searching to find out where he was going for he totally forgot about his destination.`,
+  text1: `Human life is a mixture of weal and woe, smiles and tears. However, once what had seemed to be a memorable day turned to be the saddest day of my life. We had planned for a picnic with all our classmates after the examination on the bank of the river Ganga. We started early in the morning and reached at 10 am. After the cooking was completed, we wished to take a bath in the Ganga. `,
+  text2: `Sometimes we come across some forgetful persons in our surroundings. And some geniuses are also forgetful to some extent. We know that Newton boiled his pocket watch instead of an egg. Once Einstein was traveling without a ticket in a train. When the checker demanded the ticket, he was frantically searching for the missing ticket. `,
 };
 
 const questions = [q7, q8, q9];

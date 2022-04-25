@@ -85,34 +85,36 @@ export default function Test() {
         />
       ) : (
         <>
-          <Paper
-            elevation={10}
-            sx={{
-              ml: "10vw",
-              mt: "2vh",
-              width: "80vw",
-              height: "6vh",
-              // borderRadius: "20px",
-              display: "flex",
-              flexDirection: "column",
-              backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
-            }}
-          >
-            {step < 6 ? (
-              <TimeBar interval={timeInterval1} time={time} step={step} />
-            ) : null}
-            {6 < step && step <= 9 ? (
-              <>
-                <TimeBar time={time} step={step} interval={timeInterval1} />
-                <TimeBar
-                  time={time2}
-                  step={step}
-                  interval={timeInterval2}
-                  sx={{ backgroundColor: "red" }}
-                />
-              </>
-            ) : null}
-          </Paper>
+          {step === 11 ? null : (
+            <Paper
+              elevation={10}
+              sx={{
+                ml: "10vw",
+                mt: "2vh",
+                width: "80vw",
+                height: "6vh",
+                // borderRadius: "20px",
+                display: "flex",
+                flexDirection: "column",
+                backgroundColor: !darkMode ? "#1f1f1f" : "#f2f2f2",
+              }}
+            >
+              {step < 6 ? (
+                <TimeBar interval={timeInterval1} time={time} step={step} />
+              ) : null}
+              {6 < step && step <= 9 ? (
+                <>
+                  <TimeBar time={time} step={step} interval={timeInterval1} />
+                  <TimeBar
+                    time={time2}
+                    step={step}
+                    interval={timeInterval2}
+                    sx={{ backgroundColor: "red" }}
+                  />
+                </>
+              ) : null}
+            </Paper>
+          )}
 
           <Box
             sx={{

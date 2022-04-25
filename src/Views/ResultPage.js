@@ -24,7 +24,7 @@ const Item = (props) => {
         <Box
           key={props.idx}
           sx={{
-            width: `${width * 0.6}%`,
+            width: `${width}%`,
             minWidth: "0%",
             height: "8px",
             my: "1vh",
@@ -41,23 +41,25 @@ const Item = (props) => {
 };
 
 export default function ResultPage(props) {
+  const [submit, setSubmit] = useState(false);
   useEffect(() => {
-    configureFilter(props.test);
-  });
-  useEffect(() => {
-    handleSubmit(JSON.stringify(props.test));
+    handleSubmit(configureFilter(props.test));
   }, [props.test]);
+
   const handleSubmit = async (data) => {
-    try {
-      await addDoc(collection(db, "Filter"), {
-        data: {
-          data: data,
-          date: Timestamp.now(),
-        },
-        created: Timestamp.now(),
-      });
-    } catch (err) {
-      alert(err);
+    if (!submit) {
+      try {
+        await addDoc(collection(db, "Filter"), {
+          data: {
+            filterData: data[0],
+            profTestData: data[1],
+            date: Timestamp.now(),
+          },
+        });
+        setSubmit(true);
+      } catch (err) {
+        alert(err);
+      }
     }
   };
 
@@ -67,12 +69,14 @@ export default function ResultPage(props) {
         ml: "10vw",
         backgroundColor: "#f2f2f2",
         width: "80vw",
-        height: "200vh",
+        height: "120vh",
+        display: "flex",
+        flexDirection: "row",
       }}
     >
       <Box
         sx={{
-          width: "80vw",
+          width: "40vw",
           ml: "5vw",
           height: "60vh",
           display: "flex",
@@ -96,16 +100,28 @@ export default function ResultPage(props) {
             width: "80vw",
             height: "20vh",
           }}
-        >
-          <Typography variant="h2">Web proficiency options</Typography>
-          {props.test[12][0].map((_, idx) => (
-            <Typography variant="h5" key={idx}>
-              - {proficiencies[idx]}
-            </Typography>
-          ))}
-        </Box>
+        ></Box>
       </Box>
-      <Box></Box>
+      <Box
+        sx={{
+          flex: 1,
+          mt: "5vh",
+        }}
+      >
+        <Typography
+          sx={{
+            mb: "5vh",
+          }}
+          variant="h2"
+        >
+          Options
+        </Typography>
+        {props.test[12][0].map((_, idx) => (
+          <Typography variant="h5" key={idx}>
+            - {proficiencies[idx]}
+          </Typography>
+        ))}
+      </Box>
     </Box>
   );
 }

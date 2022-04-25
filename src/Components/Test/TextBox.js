@@ -22,20 +22,24 @@ export default function TextBox(props) {
           margin: "4vh",
         }}
       >
-        <Typography
-          sx={{ px: "4vw", margin: "1rem" }}
-          variant="h6"
-          color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
-        >
-          {props.show ? props.text : null}
-        </Typography>
+        {props.show ? (
+          <Typography
+            sx={{ px: "4vw", mx: "1rem" }}
+            variant="h6"
+            color={props.darkMode ? "#f2f2f2" : "#1f1f1f"}
+          >
+            {props.text}
+          </Typography>
+        ) : (
+          <Typography variant="h2">"finished!"</Typography>
+        )}
       </Box>
 
       <Button2
         sx={{
           color: props.darkMode ? "#f2f2f2" : "#1f1f1f",
-          width: "25vw",
-          ml: "48vw",
+          width: "33vw",
+          ml: "40vw",
         }}
         name="Finished reading"
         onClick={() => {

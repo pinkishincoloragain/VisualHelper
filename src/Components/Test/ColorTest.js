@@ -2,8 +2,6 @@ import { Box } from "@mui/material";
 import { Typography } from "@mui/material";
 import Button2 from "../Button2";
 import Plate3 from "../../assets/test/Plate3.gif";
-import Plate4 from "../../assets/test/Plate4.gif";
-import Plate5 from "../../assets/test/Plate5.gif";
 import Plate6 from "../../assets/test/Plate6.gif";
 import Plate7 from "../../assets/test/Plate7.gif";
 import Plate8 from "../../assets/test/Plate8.gif";

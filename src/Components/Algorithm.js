@@ -22,8 +22,8 @@ const configureFilter = (data) => {
   // X red (Protanopia) case
   if (colorTestData[0][0] === false || colorTestData[1][0] === false) {
     filterData[0] = 1;
-    // Severe Protanopia
 
+    // Severe Protanopia
     if (colorTestData[0][0] === false && colorTestData[1][0] === false) {
       filterData[0] = 2;
     }
@@ -31,9 +31,9 @@ const configureFilter = (data) => {
 
   // X green X red (Deuteranopia) case
   else if (colorTestData[2][0] === false || colorTestData[3][0] === false) {
-    // Severe Deuteranopia
     filterData[1] = 1;
 
+    // Severe Deuteranopia
     if (colorTestData[2][0] === false && colorTestData[3][0] === false) {
       filterData[1] = 2;
     }
@@ -41,9 +41,9 @@ const configureFilter = (data) => {
 
   // changed colour (Tritanopia) case
   else if (colorTestData[4][0] === false || colorTestData[5][0] === false) {
-    // Severe Deuteranopia
     filterData[2] = 1;
 
+    // Severe Tritanopia
     if (colorTestData[2][0] === false && colorTestData[3][0] === false) {
       filterData[2] = 2;
     }
@@ -79,6 +79,8 @@ const configureFilter = (data) => {
   console.log(colorTestData);
   console.log(readingTestData);
   console.log(profTestData);
+
+  return [filterData, profTestData[0]];
 };
 
 export { configureFilter };
