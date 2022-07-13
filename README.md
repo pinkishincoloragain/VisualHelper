@@ -32,7 +32,7 @@ The **goal** of this **VisualHelper** is to design and develop a **system and a 
 
 VisualHelper
 
-![Untitled](README/Untitled.png)
+![Untitled](readme2/Untitled.png)
 
 ## 
 
@@ -40,7 +40,7 @@ VisualHelper
 
 ---
 
-![Untitled](README/Untitled%201.png)
+![Untitled](readme2/Untitled%201.png)
 
 **WebAIM** conducted a study in 2020 (Screen Reader User Survey #8 Results, 2020) that only 2% of the websites meet the requirements of the visual assistants which is essential for visually disabled people to properly read the website. According to the survey, visually impaired users have difficulty reading 98% of websites without the use of an external screenreader.
 
@@ -48,7 +48,7 @@ VisualHelper
 
 ---
 
-![Untitled](README/Untitled%202.png)
+![Untitled](readme2/Untitled%202.png)
 
 This is the system architecture of the entire system. The system’s three main components are Cloud service, Client, and web application. Three main components interact with each other using either JSON or message passing. All communication protocols are based on the Internet connection.
 
@@ -60,11 +60,11 @@ This is the system architecture of the entire system. The system’s three main 
 
 ### Use Cases
 
-![Untitled](README/Untitled%203.png)
+![Untitled](readme2/Untitled%203.png)
 
 ### Client
 
-![Untitled](README/Untitled%204.png)
+![Untitled](readme2/Untitled%204.png)
 
 Figure 3.3.3 shows the system architecture of the web application. The web application lets users take 3 types of tests to configure the appropriate filter for the user. 3 types of tests are colour test, reading test, and web proficiency test. Also, the testing page collects the elapsed time the user took to answer each question.
 
@@ -76,7 +76,7 @@ The testing and analysing process of the application consists of 3 steps.
 
 ### Algorithm
 
-![Untitled](README/Untitled%205.png)
+![Untitled](readme2/Untitled%205.png)
 
 Figure 3.4.1 shows the algorithm of how the web application evaluates the test result and configures the web transforming filter for the user. The process of configuring the filter consists of three parts: test page, test result analysis and the filter.
 
@@ -102,14 +102,14 @@ Also, taking more than standard time to figure out the answer will be considered
 
 ### Cloud service
 
-![Untitled](README/Untitled%206.png)
+![Untitled](readme2/Untitled%206.png)
 
 Figure 3.3.4 shows the system architecture of the cloud service. The cloud service consists of 2 parts: a Firebase Firestore and a management system.
 The management system handles the incoming CRUD request from the web application and chrome extension.
 
 Firebase Firestore is a NoSQL database that stores the data of the users, filters and test results.
 
-![Untitled](README/Untitled%207.png)
+![Untitled](readme2/Untitled%207.png)
 
 Figure 3.3.5 shows the data model of the database. There are three collections in the database: User, Filter and Test. The data of these collections are converted to a JSON format and delivered to the extension and web page when the request arrives at the management system.
 
@@ -143,7 +143,7 @@ The reason for changing the web page after the document is fully loaded is that 
 
 ### Testing Web app
 
-![Untitled](README/Untitled%208.png)
+![Untitled](readme2/Untitled%208.png)
 
 ## Used technologies
 
@@ -162,4 +162,4 @@ The reason for changing the web page after the document is fully loaded is that 
 
 ---
 
-![Untitled](README/Untitled%209.png)
+![Untitled](readme2/Untitled%209.png)
