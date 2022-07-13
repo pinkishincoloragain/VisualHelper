@@ -14,17 +14,7 @@ The **goal** of this **VisualHelper** is to design and develop a **system and a 
 - [**Business plan**](https://drive.google.com/file/d/1BOTxN-Kt5V2hqBNq_DvV5Cv9hI1G_jUj/view?usp=sharing)
 - [**Design files**](https://www.figma.com/file/kYzncGAImxsKOspxJHnWDX/Individual-project?node-id=0%3A1)
 
-## Table of contents
 
----
-
-- [Logo](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [Backgrounds](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [System architecture](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [Implementation](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [Technologies](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [Roadmap](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
-- [Appendix](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
 
 ## Logo
 
