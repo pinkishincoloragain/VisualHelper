@@ -2,51 +2,69 @@
 
 ---
 
-**: Webpage Transformer for visual impairment**
+**: Web transformer designed for visually impaired people** 
 
-![Untitled](readme/Untitled.png)
+> By [Myungbin Son](https://pinkishincoloragain.me/)
+> 
 
-## Overview
+The **goal** of this **VisualHelper** is to design and develop a **system and a chrome extension** to help visually impaired people **efficiently read the web page**. Another aspect of the project is to **change the layout of the web page** to a visually organised format and **enhance the user experience.**
+
+- [**Testing website](https://visualhelper.netlify.app/) (Under construction)**
+- [**Presentation**](https://drive.google.com/file/d/1m1nmDARVZ4xaEC7pRl-fP630u1ixQWDx/view?usp=sharing)
+- [**Business plan**](https://drive.google.com/file/d/1BOTxN-Kt5V2hqBNq_DvV5Cv9hI1G_jUj/view?usp=sharing)
+- [**Design files**](https://www.figma.com/file/kYzncGAImxsKOspxJHnWDX/Individual-project?node-id=0%3A1)
+
+## Table of contents
 
 ---
 
-The goal of this project is to design and develop a system and a chrome extension to help visually impaired people efficiently read the web page. Another aspect of the project is to change the layout of the web page to a visually organised format and enhance the user experience.
+- [Logo](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [Backgrounds](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [System architecture](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [Implementation](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [Technologies](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [Roadmap](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
+- [Appendix](https://www.notion.so/VisualHelper-faacd65a35704e09b34e55d861ea4d1b)
 
-This project includes 3 main components
+## Logo
 
-- Testing web page
-- Chrome extension
-- Middleware system
+---
+
+VisualHelper
+
+![Untitled](README/Untitled.png)
+
+## 
 
 ## Backgrounds
 
 ---
 
-![Untitled](readme/Untitled%201.png)
+![Untitled](README/Untitled%201.png)
 
-WebAIM conducted a study in 2020 (Screen Reader User Survey #8 Results, 2020) that only 2% of the websites meet the requirements of the visual assistants which is essential for visually disabled people to properly read the website. According to the survey, visually impaired users have difficulty reading 98% of websites without the use of an external screenreader.
+**WebAIM** conducted a study in 2020 (Screen Reader User Survey #8 Results, 2020) that only 2% of the websites meet the requirements of the visual assistants which is essential for visually disabled people to properly read the website. According to the survey, visually impaired users have difficulty reading 98% of websites without the use of an external screenreader.
 
 ## System Architecture
 
 ---
 
-![Untitled](readme/Untitled%202.png)
+![Untitled](README/Untitled%202.png)
 
 This is the system architecture of the entire system. The system’s three main components are Cloud service, Client, and web application. Three main components interact with each other using either JSON or message passing. All communication protocols are based on the Internet connection.
 
-Cloud service consists of a management system and Firebase Firestore. Cloud service stores the data of the user and supports the synchronisation of data. User data includes user identification information and filter information.
+**Cloud service** consists of a management system and Firebase Firestore. Cloud service stores the data of the user and supports the synchronisation of data. User data includes user identification information and filter information.
 
-Web application tests users with visual impairment tests. Web application analyses the result and configures filter with a complex algorithm.
+**Web application** tests users with visual impairment tests. Web application analyses the result and configures filter with a complex algorithm.
 
-The Client-side of the system operates on the top of google chrome. Chrome extension receives user data from the cloud service and configures the desired filter.  Chrome extension also manages the transformation of the client web page.
+**The** **Client-side of the system** operates on the top of google chrome. Chrome extension receives user data from the cloud service and configures the desired filter.  Chrome extension also manages the transformation of the client web page.
 
 ### Use Cases
 
-![Untitled](readme/Untitled%203.png)
+![Untitled](README/Untitled%203.png)
 
 ### Client
 
-![Untitled](readme/Untitled%204.png)
+![Untitled](README/Untitled%204.png)
 
 Figure 3.3.3 shows the system architecture of the web application. The web application lets users take 3 types of tests to configure the appropriate filter for the user. 3 types of tests are colour test, reading test, and web proficiency test. Also, the testing page collects the elapsed time the user took to answer each question.
 
@@ -58,7 +76,7 @@ The testing and analysing process of the application consists of 3 steps.
 
 ### Algorithm
 
-![Untitled](readme/Untitled%205.png)
+![Untitled](README/Untitled%205.png)
 
 Figure 3.4.1 shows the algorithm of how the web application evaluates the test result and configures the web transforming filter for the user. The process of configuring the filter consists of three parts: test page, test result analysis and the filter.
 
@@ -84,14 +102,14 @@ Also, taking more than standard time to figure out the answer will be considered
 
 ### Cloud service
 
-![Untitled](readme/Untitled%206.png)
+![Untitled](README/Untitled%206.png)
 
 Figure 3.3.4 shows the system architecture of the cloud service. The cloud service consists of 2 parts: a Firebase Firestore and a management system.
 The management system handles the incoming CRUD request from the web application and chrome extension.
 
 Firebase Firestore is a NoSQL database that stores the data of the users, filters and test results.
 
-![Untitled](readme/Untitled%207.png)
+![Untitled](README/Untitled%207.png)
 
 Figure 3.3.5 shows the data model of the database. There are three collections in the database: User, Filter and Test. The data of these collections are converted to a JSON format and delivered to the extension and web page when the request arrives at the management system.
 
@@ -125,14 +143,23 @@ The reason for changing the web page after the document is fully loaded is that 
 
 ### Testing Web app
 
-![Untitled](readme/Untitled%208.png)
+![Untitled](README/Untitled%208.png)
+
+## Used technologies
+
+---
+
+- **React.js: 17.0.2**
+- **React-redux: 7.2.6**
+- **Mui: 5.4.3**
+- **Sass: 7.0.1**
+
+## Roadmap
+
+---
 
 ## Appendix
 
 ---
 
-![Untitled](readme/Untitled%209.png)
-
-## Tech Stack
-
----
+![Untitled](README/Untitled%209.png)
